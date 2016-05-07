@@ -9,7 +9,7 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 16 // We will only support Android 4.1, Jelly Bean, API 16 and up
         targetSdkVersion 23
     }
 
