@@ -1,0 +1,100 @@
+<cyberfit version="1">
+    <authors>
+        <author id="1">
+            <name>Uki</name>
+        </author>
+    </authors>
+
+    <programs>
+        <program active="true" authorId="1" id="1" premium="false">
+            <name>Warm-up and Flexibility exercises</name>
+            <description>Start with this set before doing any other activity to properly warm up and
+                stretch your body.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="2" premium="false">
+            <name>Morning Routine</name>
+            <description>This set of exercises can be performed anywhere, in the park, in the
+                bathroom while morning wash routine, in the gym before training. This set is
+                designed to warm up, stretch and condition your body head-to-toe giving you a great
+                feeling and a little "taller" posture for the upcoming day. This routine alone will
+                keep you tuned up on the days when you are not planning to do any other exercises.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="3" premium="false">
+            <name>Outdoor Path</name>
+            <description>Map based exercises such as running, jogging, walking, hiking biking.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="4" premium="false">
+            <name>Obstacle Course</name>
+            <description>Training exercises to prepare for Obstacle Course events such as in
+                Military boot camp, Spartan Mud Race. To be able to perform
+                these exercises you will have to find a local park with obstacles, as always select
+                exercises you want to do as favorites and repeat your runs in the same order so the
+                exercises self-sort for you.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="5" premium="false">
+            <name>High Intensity, Interval Training</name>
+            <description>Set of high intensity exercises you can perform in any clear area such as
+                gym floor, home living room, outdoor park.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="6" premium="false">
+            <name>Your Own Body Weight</name>
+            <description>This set common exercises was selected to allow you to workout
+                anywhere using nothing more than your own body weight.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="7" premium="false">
+            <name>Your Own Body Weight Bench</name>
+            <description>Set of exercises that require only a stable bench (such as in the park) and
+                your body weight.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="8" premium="false">
+            <name>Floor Lay Down Exercises</name>
+            <description>Set of exercises that require a floor space to lay down.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="9" premium="false">
+            <name>Gym with Machines</name>
+            <description>This set of exercises can be performed in most of the gyms using standard
+                machines.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="10" premium="false">
+            <name>Gym with Machines</name>
+            <description>This set of exercises can be performed in most of the gyms using standard
+                machines.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="11" premium="true">
+            <name>Dumbbells Weights</name>
+            <description>This set of exercises can be performed with a set of dumbbells, or any
+                weights you can hold in separate hands, gallon milk jugs full of water, sand, etc.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="12" premium="false">
+            <name>Kettle Weights</name>
+            <description>This set of exercises can be performed with a set of Kettles, or any
+                weights you can hold with both hands, such as gallon milk jug full of water, sand,
+                etc.
+            </description>
+        </program>
+    </programs>
+
+    <exercises>
+        <exercise active="true" displayOrder="1" trackDistance="true" trackRepetitions="true"
+            trackTime="true" trackWeight="true" youtubeId="Z9aXPxgKPl8">
+            <assignedPrograms ids="1,2,4" />
+        </exercise>
+    </exercises>
+
+    <measurement display_order="1" imageResource="">
+        <name></name>
+        <description></description>
+    </measurement>
+
+</cyberfit>

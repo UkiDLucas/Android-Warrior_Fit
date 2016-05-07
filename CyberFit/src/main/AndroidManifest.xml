@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.cyberwalkabout.cyberfit">
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" /> -->
+
+    <!--
+        <permission
+        android:name="your.application.package.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+    -->
+
+    <!-- So that we can get the account name -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- Required if we need to invalidate access tokens -->
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name=".CyberFitApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_app_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:logo="@drawable/ic_actionbar_logo"
+        android:theme="@style/CyberFitAppTheme"
+        tools:replace="android:theme,android:icon">
+
+        <!-- android:theme="@style/CyberFitAppThemeSplashScreenTheme" -->
+
+        <activity
+            android:name=".TutorialScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/CyberFitAppThemeSplashScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".HomeScreen"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/CyberFitAppTheme.LoginDialog" />
+        <activity
+            android:name=".MyProfileScreen"
+            android:windowSoftInputMode="stateUnchanged" />
+        <activity
+            android:name=".ShareScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/CyberFitAppTheme.LoginDialog" />
+        <activity
+            android:name=".ExerciseDetailsScreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TrainingProgramDetailsScreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PermissionsScreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MeasurementsScreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ScheduleScreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ExerciseHistoryScreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PhotoComparisonScreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InvitePersonScreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ForumScreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ExerciseVideoScreen"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="sensor" />
+
+        <service android:name=".ExerciseLocationTrackingService" />
+
+        <provider
+            android:name=".content.CyberFitContentProvider"
+            android:authorities="com.cyberwalkabout.cyberfit.contentprovider"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!--
+        <receiver android:name=".reminder.ReminderNotificationBroadcastReceiver" />
+        <receiver android:name=".reminder.ReminderSchedulerBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        -->
+
+        <activity
+            android:name=".MapExerciseScreen"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MapExerciseSummaryScreen"
+            android:parentActivityName=".HomeScreen"
+            android:screenOrientation="portrait" />
+
+        <!--Facebook-->
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider1499529030364214"
+            android:exported="true" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_apis_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!--
+            <meta-data
+            android:name="com.google.android.backup.api_key"
+            android:value="AEdPqrEAAAAIJLuYkp-dU0zyszyI-CgQVmIsdyWG8Xr7CpZvhQ" />
+        -->
+    </application>
+
+</manifest>
