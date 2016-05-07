@@ -6,16 +6,16 @@
 *.class
 *.dex
 *.iml
+*.keystore
 *.log
+*.properties
 ######## KEEP THIS FILE SORTED ALPHABETICALLY ########
 bin/
 build/
 captures/
 gen/
+google_api_key.xml
+google_client_secrets.json
 local.properties
 proguard/
-*.properties
 settings.xml
-google_api_key.xml
-*.keystore
-*secret.json
