@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="main_red_color">#c5102a</color>
+    <color name="main_red_semitransparent">#ccc5102a</color>
+
+    <color name="window_background_color">#efecec</color>
+    <color name="actionbar_background">#2c2626</color>
+    <color name="top_bar_background">#2B2525</color>
+    <color name="top_bar_stroke">#2b2d29</color>
+    <color name="grey_button_background">#5E605B</color>
+    <color name="divider_light">#D7D7D7</color>
+    <color name="default_border">#B3B3B3</color>
+    <color name="default_border_semitransparent">#55b3b3b3</color>
+    <color name="default_text_color">#474747</color>
+    <color name="light_gray">#dfdddd</color>
+    <color name="secondary_text_color">#5e605c</color>
+    <color name="exercise_history_header_bkg">#3f3a3a</color>
+    <color name="dialog_button_pressed_focused">#66c5102a</color>
+    <color name="drag_shape_background">#efecec</color>
+    <color name="light_green">#80B600</color>
+    <color name="dark_green">#5f8700</color>
+    <color name="program_author_text_color">#9a0419</color>
+    <color name="map_type_btn_selected_color">#72706D</color>
+    <color name="map_type_btn_regular_color">#4F4F4F</color>
+    <color name="btn_add_new_person_background">#CECECE</color>
+    <color name="txt_add_new_person_color">#5E605C</color>
+    <color name="summary_column_bkg_color">#EFECEC</color>
+    <color name="navigation_drawer_background">#3F3A3A</color>
+    <color name="navigation_item_regular_color">#221E1E</color>
+    <color name="navigation_item_pressed_color">#1A1717</color>
+    <color name="paused_line_color">#80464646</color>
+    <color name="highlight_gray">#66D7D7D7</color>
+    <color name="segmented_radio_border">#AB0E24</color>
+
+    <color name="PrimaryColor">@color/actionbar_background</color>
+    <color name="PrimaryDarkColor">@color/top_bar_background</color>
+
+    <color name="profile_image_border">#FFACACAC</color>
+</resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/exercise_history_user_header" />
+
+        <LinearLayout
+            android:id="@+id/header_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/default_screen_side_padding"
+            android:paddingRight="@dimen/default_screen_side_padding"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/history_header_bkg"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/header_empty_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/default_text_color"
+                android:text="@string/schedule_header_empty" />
+
+            <TextView
+                android:id="@+id/subheader_empty_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3dp"
+                android:textSize="14sp"
+                android:textColor="@color/default_text_color" />
+
+        </LinearLayout>
+
+
+        <include layout="@layout/new_schedule_entry" />
+
+
+        <com.cyberwalkabout.cyberfit.widget.ScheduleList
+            android:id="@+id/schedule_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</ScrollView>
+

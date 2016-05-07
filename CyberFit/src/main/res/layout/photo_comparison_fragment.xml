@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <Button
+        android:id="@+id/btn_date_left"
+        style="@style/DateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_date" />
+
+
+    <ImageView
+        android:id="@+id/image_left"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-4dp"
+        android:layout_weight="40"
+        android:scaleType="fitXY"
+        android:src="@drawable/photo_empty" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/default_border" />
+
+    <Button
+        android:id="@+id/btn_date_right"
+        style="@style/DateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_date" />
+
+
+    <ImageView
+        android:id="@+id/image_right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-4dp"
+        android:layout_weight="40"
+        android:scaleType="fitXY"
+        android:src="@drawable/photo_empty" />
+
+
+</LinearLayout>

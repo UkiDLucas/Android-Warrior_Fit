@@ -18,3 +18,4 @@ proguard/
 settings.xml
 google_api_key.xml
 *.keystore
+*secret.json

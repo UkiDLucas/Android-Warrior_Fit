@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="exercise_history_with_popup" type="id"/>
+    <item name="goals" type="id"/>
+    <item name="exercise_history" type="id"/>
+    <item name="schedule" type="id"/>
+    <item name="measurements" type="id"/>
+    <item name="edit_profile" type="id"/>
+    <item name="photo_comparison" type="id"/>
+    <item name="training_programs" type="id"/>
+    <item name="exercises" type="id"/>
+    <item name="favorite_exercises" type="id"/>
+    <item name="info" type="id"/>
+    <item name="share" type="id"/>
+    <item name="people" type="id"/>
+</resources>

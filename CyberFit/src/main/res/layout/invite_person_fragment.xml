@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_screen_side_padding">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/default_text_color"
+        android:text="@string/invite_new_person_info_text1"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/email_or_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="friend@gmail.com or friend name"
+        android:layout_marginBottom="12dp"
+        android:completionThreshold="1"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/default_text_color"
+        android:text="@string/invite_new_person_info_text2"/>
+
+    <Spinner
+        android:id="@+id/friendship_types"
+        android:background="@drawable/spinner_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:minHeight="40dp"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btn_send"
+        style="@style/ButtonRed.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:minHeight="40dp"
+        android:text="Send Request"/>
+
+</LinearLayout>

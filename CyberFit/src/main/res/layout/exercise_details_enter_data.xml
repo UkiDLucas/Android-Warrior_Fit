@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/enter_data_container"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:visibility="gone">
+
+    <LinearLayout
+        android:id="@+id/weight_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="100"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:layout_marginRight="6dp"
+            android:text="How much weight did you use?"/>
+
+        <Button
+            style="@style/DropDownButton"
+            android:id="@+id/enter_weight_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="value"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/distance_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="100"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:layout_marginRight="6dp"
+            android:text="How far / high did you go?"/>
+
+        <Button
+            style="@style/DropDownButton"
+            android:id="@+id/enter_distance_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="value"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/reps_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="100"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:layout_marginRight="6dp"
+            android:text="How many reps did you do?"/>
+
+        <Button
+            style="@style/DropDownButton"
+            android:id="@+id/enter_reps_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="value"/>
+    </LinearLayout>
+</LinearLayout>

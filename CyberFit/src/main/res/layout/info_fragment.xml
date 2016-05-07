@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?><!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent">-->
+
+<!--<TextView
+    android:id="@+id/version_info"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:gravity="center"
+    android:padding="10dp"
+    android:textColor="@color/default_text_color"
+    android:textSize="12dp"
+    android:typeface="sans"
+    android:visibility="gone"/>
+
+<TextView
+    android:id="@+id/website"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@id/version_info"
+    android:layout_alignWithParentIfMissing="true"
+    android:gravity="center"
+    android:padding="10dp"
+    android:text="CyberWalkAbout.com"
+    android:textColor="@color/default_text_color"
+    android:textSize="16dp"
+    android:textStyle="bold"
+    android:typeface="sans" />-->
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/default_screen_side_padding"
+        android:paddingRight="@dimen/default_screen_side_padding">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:gravity="center"
+            android:text="@string/info_text"
+            android:textColor="@color/default_text_color"
+            android:textSize="14sp"
+            android:typeface="sans" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="8dp">
+
+            <Button
+                android:id="@+id/btn_feedback"
+                style="@style/ButtonRed.Small"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/btn_feedback" />
+
+            <Button
+                android:id="@+id/btn_share_this_app"
+                style="@style/ButtonRed.Small"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/btn_share_this_app" />
+
+            <Button
+                android:id="@+id/btn_rate_this_app"
+                style="@style/ButtonRed.Small"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/btn_rate_this_app" />
+
+            <Button
+                android:id="@+id/btn_tutorial"
+                style="@style/ButtonRed.Small"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/btn_replay_tutorial" />
+
+            <Button
+                android:id="@+id/btn_blog"
+                style="@style/ButtonRed.Small"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/btn_blog" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
+
+    <!--</RelativeLayout>-->
+

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/login_screen_background"
+    android:paddingLeft="@dimen/default_screen_side_padding"
+    android:paddingRight="@dimen/default_screen_side_padding"
+    android:gravity="center"
+    android:layout_margin="15dp"
+    android:layout_gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/default_text_color"
+        android:layout_margin="8dp"
+        android:textStyle="bold"
+        android:text="@string/facebook"
+        android:textSize="18sp"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/share_text"
+            style="@style/CyberFitAppTheme.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="4"
+            android:maxLines="4" />
+
+        <ImageView
+            android:id="@+id/share_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn_share"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Share"
+            android:textSize="14sp"
+            android:background="@drawable/apptheme_list_selector"
+            android:minHeight="48dp" />
+
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/apptheme_list_selector"
+            android:textSize="16sp"
+            android:minHeight="48dp"
+            android:text="Cancel" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

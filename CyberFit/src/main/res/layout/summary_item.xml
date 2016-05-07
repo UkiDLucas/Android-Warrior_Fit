@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:textColor="@color/default_text_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:textSize="12sp"
+        android:singleLine="true"
+        android:text="Title"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/value1"
+        android:textColor="@color/default_text_color"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:text="0.00"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/value2"
+        android:textColor="@color/default_text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:text="0.00"
+        android:layout_below="@id/value1"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:textColor="@color/default_text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="9sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@id/value1"
+        android:layout_alignBottom="@id/value1"
+        android:layout_toLeftOf="@id/value1"
+        android:singleLine="true"
+        android:text="Avg.:"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:textColor="@color/default_text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:singleLine="true"
+        android:textSize="9sp"
+        android:text="Top:"
+        android:gravity="center_vertical"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@id/value2"
+        android:layout_alignBottom="@id/value2"
+        android:layout_toLeftOf="@id/value2"/>
+
+</RelativeLayout>

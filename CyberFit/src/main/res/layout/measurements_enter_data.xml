@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/enter_data_container"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/history_header_bkg"
+    android:paddingLeft="@dimen/default_screen_side_padding"
+    android:paddingRight="@dimen/default_screen_side_padding"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:visibility="gone">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:text="Select Date and Measurement to add new measurement"
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp"
+        android:weightSum="2">
+
+        <Button
+            style="@style/DropDownButton.Small"
+            android:id="@+id/enter_date_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:text="@string/date_btn_title" />
+
+        <Button
+            style="@style/DropDownButton.Small"
+            android:id="@+id/enter_measurement_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="4dp"
+            android:text="@string/measurement_btn_title" />
+
+    </LinearLayout>
+
+    <Button
+        style="@style/ButtonRed.Small"
+        android:id="@+id/btn_done"
+        android:layout_gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:visibility="invisible"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:text="Done" />
+
+</LinearLayout>

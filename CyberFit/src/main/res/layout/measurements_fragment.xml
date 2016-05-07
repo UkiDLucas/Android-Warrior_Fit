@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/default_screen_side_padding"
+            android:paddingRight="@dimen/default_screen_side_padding"
+            android:background="@drawable/top_bar_bkg">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/display_name"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="Select area of body you wish to measure." />
+
+            <Spinner
+                android:id="@+id/measurement_types"
+                android:background="@drawable/spinner_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:minHeight="40dp"
+                android:layout_marginBottom="8dp"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/default_screen_side_padding"
+            android:paddingRight="@dimen/default_screen_side_padding">
+
+            <ImageView
+                android:id="@+id/measurement_type_image"
+                android:layout_width="130dp"
+                android:layout_height="90dp"
+                android:minHeight="90dp"
+                android:minWidth="130dp"
+                android:maxHeight="90dp"
+                android:maxWidth="130dp"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:id="@+id/measurement_type_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/measurement_type_image"
+                android:paddingLeft="10dp"
+                android:textSize="14sp"
+                android:textColor="@color/default_text_color" />
+
+        </RelativeLayout>
+
+        <include layout="@layout/measurements_enter_data" />
+
+        <com.cyberwalkabout.cyberfit.widget.MeasurementHistory
+            android:id="@+id/measurements_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</ScrollView>

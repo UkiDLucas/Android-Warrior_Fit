@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/user_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/colorBackground"
+    android:padding="@dimen/default_screen_side_padding">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="@dimen/profile_image_small"
+        android:layout_height="@dimen/profile_image_small"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginRight="8dp"
+        android:maxHeight="@dimen/profile_image_small"
+        android:maxWidth="@dimen/profile_image_small"
+        android:minHeight="@dimen/profile_image_small"
+        android:minWidth="@dimen/profile_image_small"
+        app:border_color="@color/profile_image_border"
+        app:border_width="2dp" />
+
+    <ImageButton
+        android:id="@+id/btn_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/profile_image"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_red"
+        android:paddingBottom="1dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingTop="1dp"
+        android:src="@drawable/ic_share"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/display_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/profile_image"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/profile_image"
+        android:singleLine="true"
+        android:textColor="@android:color/primary_text_light"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/exercise_completed_notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/display_name"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/profile_image"
+        android:singleLine="true"
+        android:text="Completed 6 exercises today"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/tertiary_text_light"
+        android:visibility="gone" />
+
+</RelativeLayout>

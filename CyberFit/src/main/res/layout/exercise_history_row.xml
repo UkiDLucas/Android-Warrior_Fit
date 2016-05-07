@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/date_header"
+        android:background="@color/divider_light"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="@dimen/default_screen_side_padding"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/default_text_color"
+        android:visibility="gone"/>
+
+    <LinearLayout android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/ExerciseHistoryRecordCell"
+            android:id="@+id/time_of_day"/>
+
+        <TextView
+            style="@style/ExerciseHistoryRecordCell"
+            android:id="@+id/repetition"/>
+
+        <TextView
+            style="@style/ExerciseHistoryRecordCell"
+            android:id="@+id/weight"/>
+
+        <TextView
+            style="@style/ExerciseHistoryRecordCell"
+            android:id="@+id/distance"/>
+
+        <TextView
+            style="@style/ExerciseHistoryRecordCell"
+            android:id="@+id/time"/>
+    </LinearLayout>
+
+    <View style="@style/HorizontalDivider"/>
+</LinearLayout>

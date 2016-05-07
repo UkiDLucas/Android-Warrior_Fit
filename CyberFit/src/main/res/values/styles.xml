@@ -1,0 +1,365 @@
+<resources>
+
+    <style name="CyberFitAppThemeBase" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="windowActionBar">false</item>
+        <!--<item name="android:editTextStyle">@style/CyberFitAppTheme.EditText</item>-->
+        <item name="android:listChoiceBackgroundIndicator">@drawable/apptheme_list_selector</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/apptheme_activated_background
+        </item>
+        <item name="android:selectableItemBackground">@drawable/apptheme_item_background</item>
+        <item name="android:checkboxStyle">@style/CyberFitAppTheme.ButtonCheck</item>
+        <!--<item name="android:listViewStyle">@style/CyberFitAppTheme.ListView</item>
+        <item name="android:listViewWhiteStyle">@style/CyberFitAppTheme.ListView.White</item>-->
+        <item name="android:windowBackground">@color/window_background_color</item>
+
+        <!--Branding colors-->
+        <item name="colorPrimary">@color/PrimaryColor</item>
+        <item name="colorPrimaryDark">@color/PrimaryDarkColor</item>
+        <item name="colorAccent">@color/main_red_color</item>
+
+        <!--
+        <item name="android:editTextStyle">@style/CyberFitAppTheme.EditText</item>
+        <item name="android:listViewStyle">@style/CyberFitAppTheme.ListView</item>
+        <item name="android:listViewWhiteStyle">@style/CyberFitAppTheme.ListView.White</item>
+        <item name="android:windowBackground">@color/window_background_color</item>
+        <item name="selectableItemBackground">@drawable/apptheme_item_background</item>
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>-->
+        <!--<item name="sdlDialogStyle">@style/CyberFitAppTheme.DialogStyle</item>-->
+    </style>
+
+    <style name="CyberFitAppTheme" parent="CyberFitAppThemeBase">
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <style name="CyberFitAppThemeSplashScreenTheme" parent="CyberFitAppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="CyberFitAppTheme.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/actionbar_background</item>
+        <item name="background">@drawable/actionbar_background</item>
+    </style>
+
+    <style name="CyberFitAppTheme.LoginDialog" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="CyberFitAppTheme.CheckBox" parent="android:Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/apptheme_btn_check</item>
+    </style>
+
+    <style name="CyberFitAppTheme.ButtonCheck" parent="android:Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/btn_check_selector</item>
+    </style>
+
+    <style name="CyberFitAppTheme.ListView" parent="@android:style/Widget.ListView">
+        <item name="android:listSelector">@drawable/apptheme_list_selector</item>
+        <item name="android:divider">@drawable/listview_divider</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+    </style>
+
+    <style name="CyberFitAppTheme.ListView.White" parent="@android:style/Widget.ListView.White">
+        <item name="android:listSelector">@drawable/apptheme_list_selector</item>
+        <item name="android:divider">@drawable/listview_divider</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+    </style>
+
+    <attr name="numberPickerStyle" format="reference" />
+
+    <declare-styleable name="NumberPicker">
+        <!-- @hide Color for the solid color background if such for optimized rendering. -->
+        <attr name="solidColor" format="color|reference" />
+        <!-- @hide The divider for making the selection area. -->
+        <attr name="selectionDivider" format="reference" />
+        <!-- @hide The height of the selection divider. -->
+        <attr name="selectionDividerHeight" format="dimension" />
+        <!-- @hide The distance between the two selection dividers. -->
+        <attr name="selectionDividersDistance" format="dimension" />
+        <!-- @hide The min height of the NumberPicker. -->
+        <attr name="internalMinHeight" format="dimension" />
+        <!-- @hide The max height of the NumberPicker. -->
+        <attr name="internalMaxHeight" format="dimension" />
+        <!-- @hide The min width of the NumberPicker. -->
+        <attr name="internalMinWidth" format="dimension" />
+        <!-- @hide The max width of the NumberPicker. -->
+        <attr name="internalMaxWidth" format="dimension" />
+        <!-- @hide The layout of the number picker. -->
+        <attr name="internalLayout" format="reference" />
+        <!-- @hide The drawable for pressed virtual (increment/decrement) buttons. -->
+        <attr name="virtualButtonPressedDrawable" format="reference"/>
+    </declare-styleable>
+
+    <style name="NPWidget">
+        <item name="android:textAppearance">?android:attr/textAppearance</item>
+    </style>
+
+    <style name="NPWidget.NumberPicker">
+        <item name="android:orientation">vertical</item>
+        <item name="android:fadingEdge">vertical</item>
+        <item name="android:fadingEdgeLength">50dip</item>
+    </style>
+
+    <style name="NPWidget.Holo.NumberPicker" parent="NPWidget.NumberPicker">
+        <item name="solidColor">@android:color/transparent</item>
+        <item name="selectionDivider">@drawable/np_numberpicker_selection_divider</item>
+        <item name="selectionDividerHeight">2dip</item>
+        <item name="internalLayout">@layout/number_picker_with_selector_wheel</item>
+        <item name="internalMinWidth">64dip</item>
+        <item name="internalMaxHeight">180dip</item>
+        <item name="virtualButtonPressedDrawable">@drawable/item_background_holo_dark</item>
+    </style>
+
+    <style name="NumberPickerStyle" parent="@style/NPWidget.Holo.NumberPicker">
+        <item name="internalLayout">@layout/number_picker_with_selector_wheel</item>
+        <item name="virtualButtonPressedDrawable">@drawable/apptheme_item_background</item>
+        <item name="selectionDivider">@drawable/number_picker_divider</item>
+    </style>
+
+
+    <style name="CyberFitAppTheme.GenderSwitch" parent="@style/SwitchSmall">
+        <item name="android:textOff">@string/switch_text_female</item>
+        <item name="android:textOn">@string/switch_text_male</item>
+    </style>
+
+    <style name="CyberFitAppTheme.UnitsSwitch" parent="@style/SwitchLarge">
+        <item name="android:textOff">@string/switch_text_us_standard</item>
+        <item name="android:textOn">@string/switch_text_metric</item>
+    </style>
+
+    <style name="CyberFitAppTheme.DateFormatSwitch" parent="@style/SwitchLarge">
+        <item name="android:textOff">@string/switch_text_date_us</item>
+        <item name="android:textOn">@string/switch_text_date_metric</item>
+    </style>
+
+    <style name="CyberFitAppTheme.TextAppearance.Switch" parent="android:TextAppearance.Small">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CyberFitAppTheme.TextAppearance.PhotoPrivacySwitch" parent="CyberFitAppTheme.TextAppearance.Switch">
+        <item name="android:textColor">@drawable/photo_privacy_switch_text_color</item>
+    </style>
+
+    <!--<style name="CyberFitAppTheme.DialogStyle">-->
+    <!--<item name="titleTextColor">@color/main_red_semitransparent</item>-->
+    <!--<item name="titleSeparatorColor">@color/main_red_color</item>-->
+    <!--<item name="messageTextColor">@color/default_text_color</item>-->
+    <!--<item name="buttonTextColor">@color/default_text_color</item>-->
+    <!--<item name="buttonSeparatorColor">@color/light_gray</item>-->
+    <!--<item name="buttonBackgroundColorNormal">@android:color/transparent</item>-->
+    <!--<item name="buttonBackgroundColorPressed">@color/dialog_button_pressed_focused</item>-->
+    <!--<item name="buttonBackgroundColorFocused">@color/dialog_button_pressed_focused</item>-->
+    <!--<item name="dialogBackground">@drawable/sdl_background_light</item>-->
+    <!--</style>-->
+
+    <style name="HorizontalDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider_light</item>
+    </style>
+
+    <style name="VerticalDivider">
+        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/divider_light</item>
+    </style>
+
+    <style name="NavigationDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">@drawable/navigation_divider_background</item>
+    </style>
+
+    <style name="ExerciseHistoryRecordCell">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/execise_history_cell_bkg</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+    <style name="CyberFitAppTheme.EditText" parent="android:Widget.EditText">
+        <item name="android:background">@drawable/apptheme_edit_text</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:textColor">@color/default_text_color</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="DropDownButton" parent="android:style/Widget.Button.Small">
+        <item name="android:background">@drawable/defualt_widget_border</item>
+        <item name="android:drawableRight">@drawable/arrow_down</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:textColor">@color/default_text_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="DropDownButton.Small" parent="DropDownButton">
+        <item name="android:textSize">14sp</item>
+        <item name="android:minHeight">42dp</item>
+    </style>
+
+    <style name="ButtonRed" parent="android:Widget.Button">
+        <item name="android:background">@drawable/button_red</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="ButtonRed.Small" parent="ButtonRed">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ButtonGrey">
+        <item name="android:background">@drawable/button_grey</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="ButtonGrey.Small" parent="ButtonGrey">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="ButtonGreen">
+        <item name="android:background">@drawable/button_green</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="NavigationButton" parent="android:style/Widget.Button.Small">
+        <item name="android:background">@drawable/navigation_item_background</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:drawablePadding">16dp</item>
+    </style>
+
+    <style name="SegmentedRadioButton" parent="android:style/Widget.Button.Small">
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@drawable/segmented_radio_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DateButton" parent="android:style/Widget.Button.Small">
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:background">@drawable/photo_comparioson_date_btn_bkg</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:drawableRight">@drawable/arrow_down</item>
+        <item name="android:textColor">@color/default_text_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+
+    <style name="UserNavigationButton" parent="NavigationButton">
+        <item name="android:drawableLeft">@drawable/empty_icon</item>
+    </style>
+
+    <style name="PhotoPrivacySwitch">
+        <item name="track">@drawable/switch_track_small</item>
+        <item name="android:thumb">@drawable/switch_thumb_with_paddings</item>
+        <item name="switchTextAppearance">@style/CyberFitAppTheme.TextAppearance.Switch</item>
+        <item name="switchMinWidth">48dp</item>
+        <item name="android:textOff">@string/switch_text_private</item>
+        <item name="android:textOn">@string/switch_text_shareable</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="SwitchSmall">
+        <item name="showText">true</item>
+        <!-- TODO update later -->
+        <!--<item name="track">@drawable/switch_track_small</item>-->
+        <item name="android:thumb">@drawable/switch_thumb_with_paddings</item>
+        <item name="switchTextAppearance">@style/CyberFitAppTheme.TextAppearance.Switch</item>
+        <item name="switchMinWidth">140dp</item>
+        <item name="android:textOn">@string/empty</item>
+        <item name="android:textOff">@string/empty</item>
+    </style>
+
+    <style name="SwitchLarge" parent="@style/SwitchSmall">
+        <!--<item name="track">@drawable/switch_track_large</item>-->
+    </style>
+
+    <style name="TimerLabel">
+        <item name="android:textColor">@color/secondary_text_color</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TimerValue">
+        <item name="android:textColor">@color/default_text_color</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FavoriteBadge">
+        <item name="android:layout_width">46dp</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:textOn"></item>
+        <item name="android:textOff"></item>
+        <item name="android:background">@drawable/favorite_badge</item>
+    </style>
+
+    <style name="HomeScreenTab">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">-5dp</item>
+    </style>
+
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+</resources>

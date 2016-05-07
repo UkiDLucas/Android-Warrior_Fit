@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+       <shape android:shape="rectangle">
+           <solid android:color="@color/actionbar_background"/>
+       </shape>
+    </item>
+
+    <item>
+        <bitmap
+            android:src="@drawable/action_bar_texture"
+            android:tileMode="repeat"
+            android:dither="true" />
+    </item>
+
+    <item>
+        <nine-patch android:src="@drawable/tab_regular_bottom_line" android:dither="true"/>
+    </item>
+</layer-list>

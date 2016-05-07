@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/timer_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:id="@+id/time_elapsed_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:weightSum="100"
+            android:padding="8dp">
+
+            <TextView
+                style="@style/TimerLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="35"
+                android:gravity="right|center_vertical"
+                android:layout_marginRight="6dp"
+                android:text="@string/time_elapsed_label"/>
+
+            <TextView
+                style="@style/TimerValue"
+                android:id="@+id/time_elapsed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="65"
+                android:layout_marginLeft="6dp"
+                android:gravity="left|center_vertical"
+                android:text="@string/time_initial_value"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/divider_light"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/time_left_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:weightSum="100"
+            android:padding="8dp">
+
+            <TextView
+                style="@style/TimerLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="35"
+                android:layout_marginRight="6dp"
+                android:gravity="right|center_vertical"
+                android:text="@string/time_left_label"/>
+
+            <TextView
+                android:id="@+id/time_left"
+                style="@style/TimerValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="65"
+                android:layout_marginLeft="6dp"
+                android:gravity="left|center_vertical"
+                android:text="@string/time_initial_value"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/divider_light"/>
+    </LinearLayout>
+
+</LinearLayout>

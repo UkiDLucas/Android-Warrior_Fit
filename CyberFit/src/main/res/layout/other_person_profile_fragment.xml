@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/default_screen_side_padding"
+            android:paddingRight="@dimen/default_screen_side_padding">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter your name"
+                    android:paddingRight="24dp"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:paddingRight="16dp"
+                    android:text="Me"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="110dp"
+                    android:minWidth="110dp">
+
+
+                    <ImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_gravity="center"
+                        android:maxHeight="110dp"
+                        android:maxWidth="110dp"
+                        android:minHeight="110dp"
+                        android:minWidth="110dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/profile_image_stub_male" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/gender"
+                        style="@style/CyberFitAppTheme.GenderSwitch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:checked="false"
+                        android:minHeight="45dp" />
+
+                    <Button
+                        android:id="@+id/btn_permissions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/switch_track_small"
+
+                        android:text="Permissions"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                style="@style/HorizontalDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:paddingLeft="@dimen/default_screen_side_padding"
+            android:paddingRight="@dimen/default_screen_side_padding"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/no_permissions_notice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/no_permissions_notice"
+                android:textColor="@color/default_text_color"
+                android:layout_marginBottom="50dp"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_favorite_exercises"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_exercise_history"
+                android:minHeight="48dp"
+                android:text="Favorite Exercises"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_exercise_history"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_exercise_history"
+                android:minHeight="48dp"
+                android:text="Exercise History"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_schedule"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_schedule"
+                android:minHeight="48dp"
+                android:text="Schedule"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_photo_comparison"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_photo_comparsion"
+                android:minHeight="48dp"
+                android:text="Photo Compasrison"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_measurements"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_measurements"
+                android:minHeight="48dp"
+                android:text="Measurements"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_age"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_age"
+                android:minHeight="48dp"
+                android:text="Select Age"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_weight"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_weight"
+                android:minHeight="48dp"
+                android:text="Select Weight"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_height"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_height"
+                android:minHeight="48dp"
+                android:text="Select Height"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_current_body_fat"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_body_fat"
+                android:minHeight="48dp"
+                android:text="Current Body Fat"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_desired_body_fat"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_body_fat"
+                android:minHeight="48dp"
+                android:text="Desired Fat"
+                android:visibility="gone" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_units_of_measurements_capitalized"
+                    android:textColor="@color/default_text_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/units_of_measurements"
+                    style="@style/CyberFitAppTheme.UnitsSwitch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:checked="false" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/units_sample_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/txt_units_sample_us"
+                        android:textColor="@color/default_text_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        style="@style/HorizontalDivider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/txt_date_format_capitalized"
+                        android:textColor="@color/default_text_color"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/date_format"
+                        style="@style/CyberFitAppTheme.DateFormatSwitch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="false" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/default_screen_side_padding"
+            android:paddingLeft="@dimen/default_screen_side_padding"
+            android:paddingRight="@dimen/default_screen_side_padding"
+            android:paddingTop="@dimen/default_screen_side_padding">
+
+            <!-- Dummy item to prevent EditText from receiving focus -->
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/profile_image_default"
+                android:layout_height="@dimen/profile_image_default"
+                android:layout_gravity="center"
+                android:maxHeight="@dimen/profile_image_default"
+                android:maxWidth="@dimen/profile_image_default"
+                android:minHeight="@dimen/profile_image_default"
+                android:minWidth="@dimen/profile_image_default"
+                android:src="@drawable/profile_image_stub_male"
+                app:border_color="@color/profile_image_border"
+                app:border_width="2dp" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/display_name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/profile_image"
+                app:hintAnimationEnabled="false">
+
+                <EditText
+                    android:id="@+id/display_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/primary_text_light"
+                    android:textStyle="bold" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/display_name_layout"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:minHeight="45dp" />
+
+            <TextView
+                android:id="@+id/gender_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/gender"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@id/gender"
+                android:text="Male"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/primary_text_light" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/HorizontalDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/default_screen_side_padding"
+            android:paddingRight="@dimen/default_screen_side_padding"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <Button
+                android:id="@+id/btn_age"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_age"
+                android:minHeight="48dp"
+                android:text="@string/btn_age_default" />
+
+            <Button
+                android:id="@+id/btn_weight"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_weight"
+                android:minHeight="48dp"
+                android:text="@string/btn_weight_default" />
+
+            <Button
+                android:id="@+id/btn_height"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_height"
+                android:minHeight="48dp"
+                android:text="@string/btn_height_default" />
+
+            <Button
+                android:id="@+id/btn_waist"
+                style="@style/DropDownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:drawableLeft="@drawable/ic_height"
+                android:minHeight="48dp"
+                android:text="@string/btn_waist_default" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btn_current_body_fat"
+                    style="@style/DropDownButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    android:drawableLeft="@drawable/ic_body_fat"
+                    android:minHeight="48dp"
+                    android:text="Current Body Fat" />
+
+                <Button
+                    android:id="@+id/btn_desired_body_fat"
+                    style="@style/DropDownButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    android:drawableLeft="@drawable/ic_body_fat"
+                    android:minHeight="48dp"
+                    android:text="Desired Fat" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:id="@+id/units_of_measurements_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="Metric units"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@android:color/secondary_text_light" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/units_of_measurements"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:checked="false" />
+
+                </RelativeLayout>
+
+                <View
+                    style="@style/HorizontalDivider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="8dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:id="@+id/date_format_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@android:color/secondary_text_light" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/date_format"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:checked="false" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+

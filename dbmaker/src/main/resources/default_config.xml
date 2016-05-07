@@ -1,0 +1,430 @@
+<cyberfit version="1">
+    <authors>
+        <author id="1">
+            <name>Uki (former Marine, obstacle course expert)</name>
+        </author>
+        <author id="2">
+            <name>Dr. Konrad (physiotherapist)</name>
+        </author>
+        <author id="3">
+            <name>YouTube Member</name>
+        </author>
+        <author id="4">
+            <name>Chris Patrick</name>
+        </author>
+        <author id="5">
+            <name>eFit30: Andriana Elezovich (AIF Master Trainer Dip. Nutrition,
+                Dietetics)
+            </name>
+        </author>
+        <author id="6">
+            <name>YouTube Member Adam8383</name>
+        </author>
+        <author id="7">
+            <name>YouTube Member LivestrongWoman</name>
+        </author>
+        <author id="8">
+            <name>YouTube Member Kurt Weidner</name>
+        </author>
+        <author id="9">
+            <name>YouTube Member StrongFirst</name>
+        </author>
+
+
+    </authors>
+
+
+    <programs>
+        <program active="true" authorId="1" id="1" premium="false">
+            <name>Warm-up and Flexibility exercises</name>
+            <description>Start with this set before doing any other activity to properly warm up and
+                stretch your body.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="2" premium="false">
+            <name>Daily Routine</name>
+            <description>This set of exercises can be performed anywhere, in the park, in the
+                bathroom while morning wash routine, in the gym before training. This set is
+                designed to warm up, stretch and condition your body head-to-toe giving you a great
+                feeling and a little "taller" posture for the upcoming day. This routine alone will
+                keep you tuned up on the days when you are not planning to do any other exercises.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="3" premium="false">
+            <name>Outdoor Path</name>
+            <description>Map based exercises such as running, jogging, walking, hiking biking.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="4" premium="false">
+            <name>Obstacle Course</name>
+            <description>Training exercises to prepare for Obstacle Course events such as in
+                Military boot camp, Spartan Mud Race. To be able to perform
+                these exercises you will have to find a local park with obstacles, as always select
+                exercises you want to do as favorites and repeat your runs in the same order so the
+                exercises self-sort for you.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="5" premium="false">
+            <name>High Intensity, Interval Training (HIIT)</name>
+            <description>Set of high intensity exercises you can perform in any clear area such as
+                gym floor, home living room, outdoor park.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="6" premium="false">
+            <name>Your Own Body Weight</name>
+            <description>This set common exercises was selected to allow you to workout
+                anywhere using nothing more than your own body weight.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="7" premium="false">
+            <name>Bench - Your Own Body Weight</name>
+            <description>Set of exercises that require only a stable bench (such as in the park) and
+                your body weight.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="8" premium="false">
+            <name>Floor, Mat</name>
+            <description>Set of exercises that require a floor space to lay down.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="9" premium="false">
+            <name>Gym with Exercise Machines</name>
+            <description>This set of exercises can be performed in most of the gyms using standard
+                machines.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="10" premium="false">
+            <name>Cable Machines</name>
+            <description>Cable machine exercises.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="11" premium="true">
+            <name>Dumbbells Weights</name>
+            <description>This set of exercises can be performed with a set of dumbbells, or any
+                weights you can hold in separate hands, gallon milk jugs full of water, sand, etc.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="12" premium="false">
+            <name>Kettle Weights</name>
+            <description>This set of exercises can be performed with a set of Kettles, or any
+                weights you can hold with both hands, such as gallon milk jug full of water, sand,
+                etc.
+            </description>
+        </program>
+        <program active="true" authorId="2" id="13" premium="false">
+            <name>Corrective Exercises</name>
+            <description>Corrective Exercises
+            </description>
+        </program>
+        <program active="true" authorId="3" id="14" premium="false">
+            <name>Barbell Exercises</name>
+            <description>Exercises using barbell.
+            </description>
+        </program>
+        <program active="true" authorId="1" id="15" premium="false">
+            <name>Vertical Overhead Bar Exercises</name>
+            <description>A study vertical bar (pipe) commonly found in playgrounds, parks and easily
+                installed in the doorframe can be the base for many exercises. Please make sure the
+                bar is properly fastened as serious injury can result if you fall down.
+            </description>
+        </program>
+    </programs>
+
+    <exercises>
+        <!-- VERIFIED GOOD -->
+
+        <exercise active="true" alias="Outdoors run" authorId="3"
+            description="Distance exercises using a map. You can pause the data logging to do some other exercise and resume it. Try to do about 3 miles in 18 minutes (USMC standard)."
+            ignoreYouTubeText="true" map="true" trackDistance="true" trackTime="true"
+            youtubeId="wCVSv7UxB2E">
+            <assignedPrograms ids="3" />
+        </exercise>
+
+        <exercise active="true" alias="Spine and Oblique Muscle Warm Up" authorId="1"
+            trackRepetitions="true" youtubeId="Fsyo9TNCpI8">
+            <assignedPrograms ids="1" />
+        </exercise>
+        <exercise active="true" alias="Hips Rotation Warm Up" authorId="1" trackRepetitions="true"
+            youtubeId="Isq_10c6xbs">
+            <assignedPrograms ids="1" />
+        </exercise>
+
+        <exercise active="true" alias="Monkey Bars Traverse" authorId="1" trackRepetitions="true"
+            youtubeId="XdRUVWxOOck">
+            <assignedPrograms ids="4" />
+        </exercise>
+        <exercise active="true" alias="Burpies" authorId="1" trackRepetitions="true"
+            youtubeId="-rWSz6OyYsc">
+            <assignedPrograms ids="3,4,5,6" />
+        </exercise>
+        <exercise active="true" alias="Pull ups, chin ups, under grip " authorId="1"
+            trackRepetitions="true" trackWeight="true" youtubeId="cQlwk5lo-f4">
+            <assignedPrograms ids="4,5,6,15" />
+        </exercise>
+        <exercise active="true" alias="Log jumps" authorId="1" trackRepetitions="true"
+            youtubeId="ZFlJJrwvoXA">
+            <assignedPrograms ids="3,4" />
+        </exercise>
+
+        <exercise active="true" alias="Front Lunge" authorId="1" trackRepetitions="true"
+            youtubeId="9NqyzbgD5aQ">
+            <assignedPrograms ids="2,3,5,6" />
+        </exercise>
+        <exercise active="true" alias="Cable Machine Rowing" authorId="1" trackRepetitions="true"
+            trackWeight="true" youtubeId="7C1QS21Novg">
+            <assignedPrograms ids="10" />
+        </exercise>
+
+        <exercise active="true" alias="Dumbbells Bench Press" authorId="1" trackDistance="true"
+            trackRepetitions="true" trackTime="true" trackWeight="true" youtubeId="rVjF-RY2DFQ">
+            <assignedPrograms ids="11" />
+        </exercise>
+        <exercise active="true" alias="Cable Biceps Curls" authorId="1" trackRepetitions="true"
+            trackWeight="true" youtubeId="E0mMmQxZ-WA">
+            <assignedPrograms ids="9,10" />
+        </exercise>
+        <exercise active="true" alias="Cable Machine Body Twists" authorId="1"
+            trackRepetitions="true" trackWeight="true" youtubeId="IqhwRTYsmIA">
+            <assignedPrograms ids="9,10" />
+        </exercise>
+        <exercise active="true" alias="Sit-ups (not braced)" authorId="1" trackRepetitions="true"
+            trackTime="true" youtubeId="XxQ_a91-flU">
+            <assignedPrograms ids="2,5,6,8" />
+        </exercise>
+        <exercise active="true" alias="Elliptical Machine" authorId="1" trackCalories="true"
+            trackDistance="true" trackTime="true" youtubeId="9EL2M21Yt9s">
+            <assignedPrograms ids="9" />
+        </exercise>
+        <exercise active="true" alias="Cable Machine Punches" authorId="1" trackRepetitions="true"
+            trackWeight="true" youtubeId="OK2DjNv9sw8">
+            <assignedPrograms ids="10" />
+        </exercise>
+        <exercise active="true" alias="Cable Machine Pull Down" authorId="1" trackRepetitions="true"
+            trackWeight="true" youtubeId="FuVaPRtMM9M">
+            <assignedPrograms ids="9,10" />
+        </exercise>
+        <exercise active="true" alias="Decline Push Up (normal to narrow)" authorId="1"
+            trackRepetitions="true" youtubeId="4hs4C5Y5_NE">
+            <assignedPrograms ids="7" />
+        </exercise>
+        <exercise active="true" alias="Machine Leg Press" authorId="1" trackRepetitions="true"
+            trackWeight="true" youtubeId="ZRel-dVAqK0">
+            <assignedPrograms ids="9" />
+        </exercise>
+        <exercise active="true" alias="Dumbbells Overhead Press" authorId="1"
+            trackRepetitions="true" trackWeight="true" youtubeId="VysH9JRMSv8">
+            <assignedPrograms ids="11" />
+        </exercise>
+        <exercise active="true" alias="Squats Exercise: Body Weight Squat" authorId="4"
+            trackRepetitions="true" youtubeId="p3g4wAsu0R4">
+            <assignedPrograms ids="2,3,5,6" />
+        </exercise>
+        <exercise active="true" alias="Dips" authorId="1" trackRepetitions="true"
+            youtubeId="BbmDZefs7CY">
+            <assignedPrograms ids="5,7" />
+        </exercise>
+        <exercise active="true" alias="Squat with Progressions" authorId="2" trackRepetitions="true"
+            youtubeId="ahyeWezcjdo">
+            <assignedPrograms ids="13" />
+        </exercise>
+        <exercise active="true" alias="High Knee Running" authorId="5" trackRepetitions="true"
+            youtubeId="pYF3JNqZ2ec">
+            <assignedPrograms ids="5" />
+        </exercise>
+        <exercise active="true" alias="Core Exercise: Alternating Knee Tucks in Plank" authorId="6"
+            trackRepetitions="true" youtubeId="d-0t_a2AY10">
+            <assignedPrograms ids="5,8" />
+        </exercise>
+        <exercise active="true" alias="Scissors" authorId="5" trackRepetitions="true"
+            trackTime="true" youtubeId="tMr3-vzSxjs">
+            <assignedPrograms ids="5,8" />
+        </exercise>
+
+        <exercise active="true" alias="Barbell Deadlift" authorId="7"
+            description="Put barbell close to your shins, keep spine straight, lift close to your legs."
+            ignoreYouTubeText="true" trackRepetitions="true" trackWeight="true"
+            youtubeId="Il23QYhVCzQ">
+            <assignedPrograms ids="14" />
+        </exercise>
+
+        <exercise active="true" alias="Barbell Step Up" authorId="8" trackRepetitions="true"
+            trackWeight="true" youtubeId="qq6GkSqRowQ">
+            <assignedPrograms ids="14" />
+        </exercise>
+
+        <exercise active="true" alias="Bench Step Up" authorId="1" trackRepetitions="true"
+            youtubeId="ICAoDO6UWO0">
+            <assignedPrograms ids="7" />
+        </exercise>
+
+        <exercise active="true" alias="Dumbbell Biceps Curl" authorId="1" trackRepetitions="true"
+            trackWeight="true" youtubeId="Rn_tnpOpTG0">
+            <assignedPrograms ids="11" />
+        </exercise>
+
+        <exercise active="true" alias="Dumbbell Lateral Raise" authorId="1" trackDistance="false"
+            trackRepetitions="true" trackTime="true" trackWeight="true" youtubeId="QSAc2orLxkg">
+            <assignedPrograms ids="11" />
+        </exercise>
+
+
+        <exercise active="true" alias="Decline Bench Sit Up" authorId="1" trackRepetitions="true"
+            trackWeight="true" youtubeId="EJ9YC4X7Jis">
+            <assignedPrograms ids="9" />
+        </exercise>
+
+        <exercise active="true" alias="Knee and Ankle Rotation Warm Up" authorId="1"
+            trackRepetitions="true" youtubeId="c8b7BLuAq-E">
+            <assignedPrograms ids="1" />
+        </exercise>
+
+        <!-- NOT VERIFIED -->
+
+
+        <exercise active="true" alias="Pushups, wide, bench decline" authorId="1"
+            trackRepetitions="true" youtubeId="NlQ7_thwOt8">
+            <assignedPrograms ids="5,7" />
+        </exercise>
+        <exercise active="true" alias="Push Up (or knee supported pushup)" authorId="1"
+            trackRepetitions="true" youtubeId="mwZihJeQpMY">
+            <assignedPrograms ids="" />
+        </exercise>
+
+
+        <exercise active="true" alias="Shoulder Vertical  Swing Warm Up" authorId="1"
+            trackRepetitions="true" youtubeId="OB_4oIGNtwI">
+            <assignedPrograms ids="1" />
+        </exercise>
+        <exercise active="true" alias="Wrist and Elbow Warm Up" authorId="1" trackRepetitions="true"
+            youtubeId="mCEGZfwM1b8">
+            <assignedPrograms ids="1" />
+        </exercise>
+
+
+        <exercise active="true" alias="Tire run" authorId="1" trackDistance="false"
+            trackRepetitions="true" trackTime="true" trackWeight="false" youtubeId="E_l-lfYaeok">
+            <assignedPrograms ids="4,3" />
+        </exercise>
+
+        <exercise active="true" alias="bench leg lifts" authorId="1" trackDistance="false"
+            trackRepetitions="true" trackTime="false" trackWeight="false" youtubeId="eEr6Nt6oi-A">
+            <assignedPrograms ids="4,7" />
+        </exercise>
+        <exercise active="true" alias="Single Leg Glut Hop" authorId="1" trackRepetitions="true"
+            youtubeId="G5tWlroHv-4">
+            <assignedPrograms ids="2" />
+        </exercise>
+        <exercise active="true" alias="Bent Leg raises" authorId="1" trackRepetitions="true"
+            youtubeId="u7sTzgNw1sg">
+            <assignedPrograms ids="6" />
+        </exercise>
+        <exercise active="true" alias="Batman landing" authorId="1" trackRepetitions="true"
+            youtubeId="ctqU2Ik8ZMs">
+            <assignedPrograms ids="4" />
+        </exercise>
+        <exercise active="true" alias="Machine Sitted Bench Press" authorId="1"
+            trackRepetitions="true" trackWeight="true" youtubeId="nC-hw_Kz3RQ">
+            <assignedPrograms ids="9" />
+        </exercise>
+        <exercise active="true" alias="Jumping Jacks" authorId="1" trackRepetitions="true"
+            youtubeId="RYz3355aQ40">
+            <assignedPrograms ids="5" />
+        </exercise>
+        <exercise active="true" alias="Diamond Pushups" authorId="1" trackRepetitions="true"
+            youtubeId="OIforxJlRXM">
+            <assignedPrograms ids="5,6,8" />
+        </exercise>
+        <exercise active="true" alias="Treadmill Run " authorId="1" trackDistance="true"
+            trackRepetitions="false" trackTime="true" trackWeight="false" youtubeId="dpEMmG30ffY">
+            <assignedPrograms ids="9" />
+        </exercise>
+        <exercise active="true" alias="Body curl, knees bent" authorId="1" trackRepetitions="true"
+            youtubeId="fHmwtjphD0w">
+            <assignedPrograms ids="4,9" />
+        </exercise>
+        <exercise active="true" alias="Hurdle bar" authorId="1" trackRepetitions="true"
+            youtubeId="dWxzOzKTHqA">
+            <assignedPrograms ids="4" />
+        </exercise>
+        <exercise active="true" alias="Floor Bridge" authorId="1" trackRepetitions="true"
+            trackTime="true" youtubeId="yWGK4FSoU_E">
+            <assignedPrograms ids="8" />
+        </exercise>
+
+
+        <exercise active="true" alias="Turkish Get Up" authorId="9" trackRepetitions="true"
+            trackWeight="true" youtubeId="0bWRPC49-KI">
+            <assignedPrograms ids="12" />
+        </exercise>
+
+        <exercise active="true" alias="Skullcrusher barbell/bench" authorId="1"
+            trackRepetitions="true" trackWeight="true" youtubeId="d_KZxkY_0cM">
+            <assignedPrograms ids="14" />
+        </exercise>
+        <exercise active="true" alias="High chair - knees bent " authorId="1"
+            trackRepetitions="true" youtubeId="ulML5zfvuHs">
+            <assignedPrograms ids="4" />
+        </exercise>
+        <exercise active="true" alias="Mountain Climbers" authorId="1" trackRepetitions="true"
+            youtubeId="26gpYTauajw">
+            <assignedPrograms ids="5,6,8" />
+        </exercise>
+        <exercise active="true" alias="Stationary Bike" authorId="1" trackDistance="true"
+            trackTime="true" youtubeId="JgaPjTLggfE">
+            <assignedPrograms ids="9" />
+        </exercise>
+        <exercise active="true" alias="Plank Toe Taps" authorId="1" trackRepetitions="true"
+            trackTime="true" youtubeId="V9T79TRb28I">
+            <assignedPrograms ids="8" />
+        </exercise>
+        <exercise active="true" alias="Neck rotation warm up" authorId="1" trackRepetitions="true"
+            youtubeId="o0Hx_solcCo">
+            <assignedPrograms ids="1" />
+        </exercise>
+        <exercise active="true" alias="Machine Overhead Press" authorId="1" trackRepetitions="true"
+            trackWeight="true" youtubeId="EvYp-gFCP30">
+            <assignedPrograms ids="9" />
+        </exercise>
+
+
+        <exercise active="true" alias="Bulgarian Split Squat" authorId="1" trackRepetitions="true"
+            youtubeId="Oj64j3IqRv0">
+            <assignedPrograms ids="14" />
+        </exercise>
+        <exercise active="true" alias="Straight Leg Deadlift" authorId="1" trackRepetitions="true"
+            trackWeight="true" youtubeId="Eb4sUdxocH8">
+            <assignedPrograms ids="14" />
+        </exercise>
+        <exercise active="true" alias="Walk Outs with Progressions" authorId="1"
+            trackRepetitions="true" youtubeId="Doe2gBXf0X4">
+            <assignedPrograms ids="13" />
+        </exercise>
+        <exercise active="true" alias="Single Leg Box Squat Tutorial - Progression to Pistol Squat"
+            authorId="1" trackRepetitions="true" youtubeId="_yZTviA8F3s">
+            <assignedPrograms ids="7" />
+        </exercise>
+        <exercise active="true" alias="Prone Cobra" authorId="1" trackRepetitions="true"
+            trackTime="true" youtubeId="0ZsJvmGoI18">
+            <assignedPrograms ids="8" />
+        </exercise>
+        <exercise active="true" alias="Plank" authorId="1" trackTime="true" trackWeight="false"
+            youtubeId="tjERjA7njV4">
+            <assignedPrograms ids="13" />
+        </exercise>
+        <exercise active="true" alias="Bench Press (pectorals)" authorId="1" trackRepetitions="true"
+            trackWeight="true" youtubeId="whitHNSryjs">
+            <assignedPrograms ids="14" />
+        </exercise>
+        <exercise active="true" alias="Parallel Bars Traverse" authorId="1" trackDistance="true"
+            youtubeId="ksUYUSYo51Y">
+            <assignedPrograms ids="4" />
+        </exercise>
+
+    </exercises>
+
+    <measurement display_order="1" imageResource="">
+        <name></name>
+        <description></description>
+    </measurement>
+
+</cyberfit>

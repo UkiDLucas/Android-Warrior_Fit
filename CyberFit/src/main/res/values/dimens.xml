@@ -1,0 +1,19 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="listview_divider_height">1dp</dimen>
+
+    <dimen name="shadow_height">8dp</dimen>
+    <dimen name="drawer_offset">100dp</dimen>
+
+    <dimen name="default_screen_side_padding">16dp</dimen>
+    <dimen name="image_border_width">2dp</dimen>
+    <dimen name="exercise_description_text_size">14dp</dimen>
+
+    <dimen name="navigation_drawer_left_margin">5dp</dimen>
+
+    <dimen name="profile_image_default">96dp</dimen>
+    <dimen name="profile_image_small">54dp</dimen>
+</resources>

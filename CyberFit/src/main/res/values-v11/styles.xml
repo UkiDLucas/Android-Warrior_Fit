@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CyberFitAppTheme" parent="CyberFitAppThemeBase">
+        <!--<item name="android:actionBarStyle">@style/CyberFitAppTheme.ActionBar</item>
+        <item name="android:listChoiceBackgroundIndicator">@drawable/apptheme_list_selector</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/apptheme_activated_background</item>
+        <item name="android:selectableItemBackground">@drawable/apptheme_item_background</item>
+        <item name="android:checkboxStyle">@style/CyberFitAppTheme.ButtonCheck</item>
+        <item name="android:editTextStyle">@style/CyberFitAppTheme.EditText</item>
+        <item name="android:listViewStyle">@style/CyberFitAppTheme.ListView</item>
+        <item name="android:listViewWhiteStyle">@style/CyberFitAppTheme.ListView.White</item>
+        <item name="android:windowBackground">@color/window_background_color</item>-->
+        <!--<item name="sdlDialogStyle">@style/CyberFitAppTheme.DialogStyle</item>-->
+    </style>
+
+    <style name="CyberFitAppThemeSplashScreenTheme" parent="CyberFitAppTheme">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

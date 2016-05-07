@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CyberFit</string>
+
+    <string name="empty"></string>
+
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="done">Done</string>
+    <string name="finish">Finish</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
+
+    <string name="by">by</string>
+
+    <string name="abbr_not_available">N/A</string>
+
+    <string name="switch_text_male">Male</string>
+    <string name="switch_text_female">Female</string>
+    <string name="switch_text_private">Private</string>
+    <string name="switch_text_shareable">Shareable</string>
+    <string name="switch_text_metric">Metric</string>
+    <string name="switch_text_us_standard">US Standard</string>
+    <string name="switch_text_us">US</string>
+    <string name="switch_text_date_us">01/15/2013</string>
+    <string name="switch_text_date_metric">15/01/2013</string>
+    <string name="date_format_us">MM/dd/yyyy</string>
+    <string name="date_format_metric">dd/MM/yyyy</string>
+    <string name="exercise_enter_time_label">Enter time allowed for this exercise</string>
+    <string name="leave_empty">Leave empty if not timed</string>
+    <string name="time_elapsed_label">TIME:</string>
+    <string name="time_initial_value">00:00:00</string>
+    <string name="time_left_label">LEFT:</string>
+    <string name="exercise_details_to_enter_notice">You will enter %s upon completion of this exercise</string>
+    <string name="weight">weight</string>
+    <string name="and">and</string>
+    <string name="distance">Distance</string>
+    <string name="repetitions">repetitions</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="btn_age_default">Select Age</string>
+    <string name="btn_height_default">Select Height</string>
+    <string name="btn_weight_default">Select Weight</string>
+    <string name="btn_waist_default">Select Waist</string>
+    <string name="btn_current_body_fat_default">Current body fat</string>
+    <string name="btn_desired_body_fat_default">Desired body fat</string>
+    <string name="btn_refresh">Refresh</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="unsubscribe">Unsubscribe</string>
+
+    <string name="unit_kg">kg</string>
+    <string name="unit_pounds">lbs</string>
+    <string name="unit_km">km</string>
+    <string name="unit_mile">mi</string>
+    <string name="unit_meters">m</string>
+    <string name="unit_cm">cm</string>
+    <string name="unit_feets">ft</string>
+    <string name="unit_inches">in</string>
+    <string name="unit_age">years</string>
+    <string name="unit_percentage">%</string>
+    <string name="unit_speed_km_hr">km/hr</string>
+    <string name="unit_speed_miles_hr">mi/hr</string>
+    <string name="unit_pace_minute_per_mile">min/mile</string>
+    <string name="unit_pace_minute_per_km">min/km</string>
+
+    <string name="user_profile_validate_input_notice">Display name, weight, height should not be empty</string>
+    <string name="save_exercise_history_notice">Should I include this exercise in the history?</string>
+
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="google_plus">Google+</string>
+    <string name="user_profile_local">Local</string>
+
+    <string name="exercise_history_record_reps">REPETITION</string>
+    <string name="exercise_history_record_time_of_day">TIME OF DAY</string>
+    <string name="exercise_history_record_weight">WEIGHT</string>
+    <string name="exercise_history_record_distance">DISTANCE</string>
+    <string name="exercise_history_record_time">TIME</string>
+
+    <string name="exercise_history_header_empty">You have not completed any sets yet.</string>
+    <string name="exercise_history_header_text_today">Sets completed today:</string>
+
+    <string name="login_screen_title">Connect via Social Network</string>
+    <string name="login_screen_subtitle">Login with social network is optional, however it will allow you to back-up your data and connect with friends who use this application.</string>
+    <string name="profile_screen_title">My Prfofile</string>
+    <string name="info_screen_title">Info</string>
+    <string name="goals_screen_title">My Goals</string>
+    <string name="forum_screen_title">Forum</string>
+    <string name="program_details_screen_title">PROGRAM</string>
+    <string name="exercise_details_screen_title">EXERCISE</string>
+
+    <string name="txt_units_of_measurements_capitalized">UNITS OF MEASUREMENTS</string>
+    <string name="txt_date_format_capitalized">DATE FORMAT</string>
+    <string name="txt_date_format">Date format</string>
+    <string name="txt_units_sample_us">ex. 140.5 lbs</string>
+    <string name="txt_units_sample_metric">ex. 64.5 kg</string>
+    <string name="txt_refresh_app">Refresh the application to see if there are any new programs or exercises</string>
+
+    <string name="progress_update_app">Updating…</string>
+    <string name="progress_sign_in">Signing in…</string>
+    <string name="progress_upload_photo">Uploading photo…</string>
+
+    <string name="body_fat_input_popup_title">Enter Boday Fat</string>
+    <string name="age_input_popup_title">Enter Age</string>
+    <string name="weight_input_popup_title">Enter weight</string>
+    <string name="date_input_popup_title">Select date</string>
+    <string name="measurement_input_popup_title">Enter measurement</string>
+    <string name="time_input_popup_title">Enter time</string>
+    <string name="height_input_popup_title">Enter height</string>
+    <string name="repetitions_input_popup_title">Enter repetitions</string>
+    <string name="distance_input_popup_title">Enter distance</string>
+    <string name="waist_input_popup_title">Enter waist</string>
+
+    <string name="measurement_types_activity_title">Measurements</string>
+    <string name="info_activity_title">Info</string>
+    <string name="goals_activity_title">Goals</string>
+    <string name="photo_comparison_activity_title">Photo Comparison</string>
+    <string name="schedule_activity_title">Schedule</string>
+    <string name="exercise_history_activity_title">Exercise History</string>
+    <string name="invite_person_activity_title">Invite a person</string>
+    <string name="permissions_activity_title">%1$s is able to…</string>
+
+    <string name="measurements_history_header_empty">You have not entered any measurements yet. Use&#160;&#160;&#160;to add new measurements.</string>
+    <string name="schedule_header_empty">%1$s currently %2$s not have a schedule.</string>
+    <string name="schedule_subheader_empty">By using the&#160;&#160;&#160;icon you will be able to set a date and time for when you would like to workout.</string>
+
+    <string name="date_btn_title">Date</string>
+    <string name="measurement_btn_title">Measurement</string>
+
+    <string name="tab_people">People</string>
+    <string name="tab_exercises">Exercises</string>
+    <string name="tab_programs">Programs</string>
+    <string name="tab_info">More info</string>
+    <!--<string name="tab_goals">My Goals</string>-->
+
+    <string name="btn_feedback">Email us!</string>
+    <string name="btn_share_this_app">Spread love, share CyberFit app</string>
+    <string name="btn_rate_this_app">Rate CyberFit</string>
+    <string name="btn_replay_tutorial">Tutorial</string>
+    <string name="btn_blog">Our Facebook page</string>
+    <string name="info_text"><b>CyberWalkAbout.com</b> is a mobile app development company specializing in state-of-the-art user experience design for <b>Android</b> and <b>Apple iOS mobile devices</b>. Currently serving clients in Chicago and Seattle.\n\n<b>To sign up the best trainers we need more users like you, please rate and share this app.</b>\n\n<b>Your email feedback will be appreciated.</b></string>
+    <string name="market_app_not_found_notice">Couldn\'t launch google play app</string>
+    <string name="share_app_chooser_popup_title">Share via</string>
+    <string name="email_chooser_popup_title">Send via</string>
+    <string name="feedback_email_subject">Feedback for CyberFit app - Android v.%1$s</string>
+    <string name="schedules_email_subject">Schedules</string>
+    <string name="share_this_app_message">I would like to share with you #CyberFit video-based fitness app http://bit.ly/CyberFit</string>
+    <string name="share_running_summary_message">I completed %1$s in %2$s.  Shared via #CyberFitness app http://bit.ly/CyberFit</string>
+    <string name="share_training_program_message">I use #CyberFit app exercise program \"%1$s\" by %2$s http://bit.ly/CyberFit</string>
+    <string name="share_exercise_history_message">I worked out with #CyberFit app:\n%1$shttp://bit.ly/CyberFit</string>
+
+
+    <string-array name="day_of_week">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
+    <string-array name="day_of_week_short">
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+        <item>Sat</item>
+        <item>Sun</item>
+    </string-array>
+
+
+    <string name="pace">Pace</string>
+    <string name="altitude">Altitude</string>
+    <string name="speed">Speed</string>
+
+    <string name="altitude_title">ALTITUDE (%1$s):</string>
+    <string name="altitude_top">Top:</string>
+    <string name="altitude_avg">Avg:</string>
+
+    <string name="speed_title">SPEED (%1$s):</string>
+    <string name="pace_title">PACE (min/%1$s):</string>
+    <string name="distance_title">DISTANCE:</string>
+    <string name="time_title">TIME:</string>
+
+    <string name="text_avg">Avg:</string>
+    <string name="text_cur">Cur:</string>
+    <string name="text_top">Top:</string>
+    <string name="text_low">Low:</string>
+
+    <string name="splash_screen_text1"><![CDATA[<html><b>CyberFit:</b> video-based\ntraining program</html>]]></string>
+    <string name="splash_screen_text2">by CyberWalkAbout.com</string>
+
+    <string name="login_view_text">You are logged in using %1$s</string>
+    <string name="photo_chooser_dialog_title">Select or take a new Picture</string>
+
+    <string name="goals_filter_title">Filter exercises based on your interests:</string>
+
+    <string name="program_details_should_be_subscribed_notice">You should be subscribed at least to one program</string>
+    <string name="program_details_exercise_notice">You should be subscribed to a program to start exercise</string>
+    <string name="delete_record_confirmation_notice">Delete this record?</string>
+    <string name="share_exercises_notice">Do you want to share your exercises?</string>
+
+    <string name="exercise_notice">When exercising please make sure you maintain the correct form as even small differences can trigger different muscle groups. Please watch instructional video.</string>
+
+    <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
+
+    <string name="user">User</string>
+    <string name="user_not_finished_any_exercises_yet">%1$s not finished any exercises yet.</string>
+    <string name="user_not_finished_any_exercises_today">%1$s not finished any exercises today.</string>
+    <string name="no_exercise_for_selected_programs">Please subscribe to more Programs, or select more Goals because the current combination results in empty set of exercises</string>
+    <string name="no_favorite_exercise">You have not selected any favorite exercises yet</string>
+    <string name="enter_exercise_data_notice">Are you sure you don\'t want to enter %1$s value?</string>
+    <string name="proceed">Proceed</string>
+    <string name="go_back">Go Back</string>
+    <string name="invite_new_person_info_text1">Enter email of a person you want to invite to train with you. Sometimes people using different emails when signing to Facebook or Google+, ask your friend, or send multiple invitations.</string>
+    <string name="invite_new_person_info_text2">Add this person as my...</string>
+    <string name="invite_new_person_email_subject">Join CyberFitness to train with me</string>
+    <string name="invite_new_person_email_text"><![CDATA[<html><body>
+    Hey,<br><br>I recently joined CyberFitness - an app that allows me to keep track of my workouts with fun exercises. Best part is that I\'m able to invite you! Lets train together! <a href=\'http://bit.ly/1brIZHH\'>Download the app</a> If you want more information: <a href=\'http://bit.ly/1jPjIqW\'>CyberWalkAbout.com</a>
+    <br><br><i>CyberFitness is created by <a href=\'http://bit.ly/1jPjIqW\'>CyberWalkAbout.com</a> - a mobile development company specializing in state-of-the-art user experience design for Android and Apple iOS mobile devices. Currently serving clients in both Chicago and LA.</i>
+    </body></html>]]></string>
+    <string name="login_succcessful_notice">You have successfully logged in via %1$s.</string>
+    <string name="drawer_open">drawer open</string>
+    <string name="drawer_close">drawer close</string>
+
+    <string name="exercise_history">Exercise log</string>
+    <string name="schedule">Session scheduler</string>
+    <string name="photo_comparison">Photo comparison</string>
+    <string name="measurements">Measurements</string>
+    <string name="my_profile">My profile</string>
+    <string name="profile">Profile</string>
+    <string name="training_programs">Fitness programs</string>
+    <string name="exercises">Exercises</string>
+    <!--<string name="favorite_exercises">FAVORITES</string>-->
+    <!-- TODO: bad naming using a single word, suggested activity_label_goals -->
+    <!--<string name="goals">GOALS</string>-->
+    <string name="invite_friend">INVITE FRIEND</string>
+    <!-- Hiding people activity for now, as the user interaction is terrible -->
+    <!--string name="people">PEOPLE</string-->
+    <string name="info">More info</string>
+    <!--<string name="blog">BLOG</string>-->
+    <!--<string name="share">SHARE</string>-->
+
+    <string-array name="tutorial_titles">
+        <item>Simple navigation</item>
+        <item>Training programs</item>
+        <item>Video exercises</item>
+        <item>Filtering</item>
+        <item>Exercise log</item>
+        <item>Map</item>
+    </string-array>
+
+    <string-array name="tutorial_descriptions">
+        <item>Navigation is simple and always available in the LEFT panel. Use optional login using Google+.</item>
+        <item>Everyone is different. PROGRAMS allow you to choose what kind of situation and training style fits you best.</item>
+        <item>Each exercise has a video and description which are searchable. Select (star) FAVORITES to further narrow of what you like.</item>
+        <item>Available by pressing the filter icon in the top right corner. Select sets of exercises that are appropriate to your current goals, equipment availability and location (i.e. gym, outdoors, home).</item>
+        <item>Exercise log - shows you exercises you have completed and allows you to share them with friends</item>
+        <item>Track your exercises on the map and share with friends</item>
+        <!--<item>Stay active OUTDOORS, the app supports running, biking and hiking with map, statistics and ability to pause multiple times.</item>
+        <item>Keep track of your progress by recording your body MEASUREMENTS.</item>
+        <item>Never forget another training session, we have built in SCHEDULER that will notify you of your next session.</item>-->
+    </string-array>
+
+    <string name="location_provider_required_notice">This option requires location provider be enabled. Enable any of gps or network location providers on settings scrreen.</string>
+
+    <string name="see_goals_notice">Your exercises are filtered by goals you set for yourself.</string>
+    <string name="see_goals">See goals</string>
+
+    <string name="training_programs_search_hint">Enter program name</string>
+    <string name="exercises_search_hint">Enter exercise name</string>
+    <string name="people_search_hint">Enter name</string>
+
+    <string name="client">Client</string>
+    <string name="trainer">Trainer</string>
+    <string name="friend">Friend</string>
+
+    <string name="friendship_not_available_notice">Friendship is available only for authorized users</string>
+    <string name="dismiss">Dismiss</string>
+
+    <string name="change">Change</string>
+    <string name="login">Login</string>
+
+    <string name="tap_to_open_profile">LOG IN</string>
+
+    <string name="wrong_email_format_or_friend_name_notice">Wrong email format or friend name</string>
+    <string name="person_already_in_friend_list_notice">This person is already your %1$s</string>
+    <string name="person_already_in_people_list_notice">This user already added to your people list</string>
+    <string name="person_did_not_confirm_invitation_notice">This person have not signed in to CyberFit app yet, re-send the invitation?</string>
+    <string name="person_accepted_invitation_notice">This user accepted your invitation, now he is in your friend list.</string>
+    <string name="sending_request_notice">Sending request...</string>
+    <string name="checking_request_status_notice">Checking status...</string>
+    <string name="loading_granted_permissions_notice">Loading granted permissions...</string>
+
+    <string name="friendship_request_status_popup_not_signed_in">This person have not accepted your invitation yet, would you like to re-send invitation?</string>
+    <string name="friendship_request_status_popup_denied">This person denied your friendship request</string>
+    <string name="friendship_request_actions_popup_title">Friendship request</string>
+    <string name="friendship_request_actions_popup_subtitle">%1$s wants to add you like a %2$s</string>
+    <string name="friendship_request_popup_title">CyberFit sharing request</string>
+    <string name="friendship_request_popup_subtitle">Would you want to invite %1$s to share her CyberFit with you?</string>
+    <string name="accept">Accept</string>
+    <string name="deny">Deny</string>
+    <string name="remove_user">Remove User</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="send">Send</string>
+
+    <string name="version_info">Version: %1$s, API: %2$s</string>
+
+    <string name="age_not_set">Age not set</string>
+    <string name="weight_not_set">Weight not set</string>
+    <string name="height_not_set">Height not set</string>
+    <string name="body_fat_not_set">Body Fat not set</string>
+    <string name="desired_body_fat_not_set">Desired Body Fat not set</string>
+
+    <string name="no_permissions_notice">%1$s did not grant you any permissions yet.</string>
+    <string name="no_edit_permission_notice">You do not have permission to edit this info.</string>
+
+    <string name="cyber_fit_people_header">CyberFit People</string>
+    <string name="cyber_fit_people_subheader">List of people who already accepted your invitation.</string>
+
+    <string name="pending_invitations_header">Pending Invitations</string>
+    <string name="pending_invitations_subheader">List of people you invited, or incoming invitations for you.</string>
+
+    <string name="social_people_header">%1$s friends using CyberFit</string>
+    <string name="social_people_subheader">List of friends that use CyberFit, but not connected to you.</string>
+
+    <string name="no_photos_taken">You have not taken any photos yet!</string>
+    <string name="photo_single_photo">You have only a single photo taken.</string>
+    <string name="select_date">Select Date</string>
+    <string name="set_photo_privacy">Set photo\'s privacy</string>
+
+    <string name="photo">Photo</string>
+
+    <string name="confirm_quit_notice">Do you really want to exit the application?</string>
+    <string name="loading_history_records">Loading history…</string>
+
+    <string name="show_favorites_only">Show only my favorites</string>
+
+    <!-- PERMISSIONS TITLES-->
+    <string name="can_be_notified">Receive My Notifications</string>
+    <string name="can_see_age">See Age</string>
+    <string name="can_see_body_fat">See Body Fat</string>
+    <string name="can_see_desired_body_fat">See Desired Body Fat</string>
+    <string name="can_see_goals">See Goals</string>
+    <string name="can_see_height">See Height</string>
+    <string name="can_see_history">See History</string>
+    <string name="can_see_measurements">See Measurements</string>
+    <string name="can_see_photos">See Photos</string>
+    <string name="can_see_schedule">See Schedule</string>
+    <string name="can_see_weight">See Weight</string>
+    <string name="can_edit_profile">Edit My Profile (be careful!)</string>
+
+    <string name="finished">Finished</string>
+    <string name="n_repetitions">%1$s reps</string>
+
+    <string name="time">Time</string>
+
+    <string name="closeDrawer">Navigation View</string>
+    <string name="openDrawer">Navigation View Closed</string>
+
+    <string name="units_lower">units</string>
+
+    <plurals name="exercises">
+        <item quantity="one">exercise</item>
+        <item quantity="other">exercises</item>
+    </plurals>
+
+    <string name="completed_capitalized">Completed</string>
+    <string name="today">today</string>
+    <string name="no_exercises_completed_today">No exercises completed today</string>
+
+    <string name="hr">hr</string>
+    <string name="min">min</string>
+    <string name="sec">sec</string>
+    <string name="in">in</string>
+    <!--<string name="not_now"><u>Not now</u></string>-->
+    <string name="not_now">Not now</string>
+
+</resources>

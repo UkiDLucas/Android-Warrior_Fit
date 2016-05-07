@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/exercises"
+            android:checked="false"
+            android:icon="@drawable/ic_tab_exercise"
+            android:title="@string/exercises" />
+
+        <item
+            android:id="@+id/exercise_history"
+            android:checked="false"
+            android:icon="@drawable/ic_tab_goals"
+            android:title="@string/exercise_history" />
+
+        <item
+            android:id="@+id/training_programs"
+            android:checked="false"
+            android:icon="@drawable/ic_tab_programs"
+            android:title="@string/training_programs" />
+
+        <item
+            android:id="@+id/info"
+            android:checked="false"
+            android:icon="@drawable/ic_tab_settings"
+            android:title="@string/info" />
+    </group>
+
+    <!--<group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/exercises"
+            android:checked="false"
+            android:icon="@drawable/ic_tab_exercise"
+            android:title="@string/exercises" />
+    </group>
+
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/exercise_history"
+            android:checked="false"
+            android:icon="@drawable/ic_tab_goals"
+            android:title="@string/exercise_history" />
+    </group>
+
+    <group
+        android:id="@+id/group3"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/training_programs"
+            android:checked="false"
+            android:icon="@drawable/ic_tab_programs"
+            android:title="@string/training_programs" />
+    </group>
+
+    <group
+        android:id="@+id/group4"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/info"
+            android:checked="false"
+            android:icon="@drawable/ic_tab_settings"
+            android:title="@string/info" />
+    </group>-->
+
+</menu>

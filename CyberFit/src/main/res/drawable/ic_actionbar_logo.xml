@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+       android:drawable="@drawable/ic_app_launcher"
+       android:insetBottom="6dip"
+       android:insetLeft="6dip"
+       android:insetRight="6dip"
+       android:insetTop="6dip"
+       android:visible="true"/>
