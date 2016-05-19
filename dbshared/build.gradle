@@ -1,8 +1,8 @@
 apply plugin: 'java'
 
 allprojects {
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    sourceCompatibility = 1.7 // Android does not love 1.8
+    targetCompatibility = 1.7 // Android does not love 1.8
 }
 
 dependencies {
