@@ -7,7 +7,9 @@ import com.cyberwalkabout.cyberfit.fragment.PhotoComparisonFragment;
 
 /**
  * @author Maria Dzyokh
+ * Deprecated on May 19, 2016 - this functionality may be used in the future again
  */
+@Deprecated
 public class PhotoComparisonScreen extends NavigationActivity {
 
     @Override

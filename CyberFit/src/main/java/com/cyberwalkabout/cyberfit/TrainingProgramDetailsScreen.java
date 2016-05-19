@@ -11,6 +11,10 @@ import android.view.MenuItem;
 import com.cyberwalkabout.cyberfit.flurry.FlurryAdapter;
 import com.cyberwalkabout.cyberfit.util.IFilterable;
 
+/**
+ * Uki D. Lucas: depracated because Programs provides very little value
+ */
+@Deprecated
 public class TrainingProgramDetailsScreen extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     private SearchView searchView;

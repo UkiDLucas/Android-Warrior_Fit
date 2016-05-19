@@ -7,7 +7,9 @@ import com.cyberwalkabout.cyberfit.fragment.ScheduleFragment;
 
 /**
  * @author Maria Dzyokh
+ * Deprecated by Uki D. Lucas on May 19, 2016 - this screen may be used in the future again
  */
+@Deprecated
 public class ScheduleScreen extends NavigationActivity{
 
     @Override
