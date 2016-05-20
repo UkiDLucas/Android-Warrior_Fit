@@ -206,9 +206,9 @@
 
     <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
 
-    <string name="user">User</string>
+    <string name="user">You</string>
     <string name="user_not_finished_any_exercises_yet">%1$s not finished any exercises yet.</string>
-    <string name="user_not_finished_any_exercises_today">%1$s not finished any exercises today.</string>
+    <string name="user_not_finished_any_exercises_today">%1$s did not finish any exercises today.</string>
     <string name="no_exercise_for_selected_programs">Please subscribe to more Programs, or select more Goals because the current combination results in empty set of exercises</string>
     <string name="no_favorite_exercise">You have not selected any favorite exercises yet</string>
     <string name="enter_exercise_data_notice">Are you sure you don\'t want to enter %1$s value?</string>
@@ -233,7 +233,7 @@
     <string name="profile">Profile</string>
     <string name="training_programs">Fitness programs</string>
     <string name="exercises">Exercises</string>
-    <!--<string name="favorite_exercises">FAVORITES</string>-->
+    <string name="star_favorites">Favorites</string>
     <!-- TODO: bad naming using a single word, suggested activity_label_goals -->
     <!--<string name="goals">GOALS</string>-->
     <string name="invite_friend">INVITE FRIEND</string>

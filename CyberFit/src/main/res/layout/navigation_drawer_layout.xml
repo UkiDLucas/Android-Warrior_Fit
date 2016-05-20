@@ -55,13 +55,13 @@
 
                 <View style="@style/NavigationDivider" />
 
-                <Button
-                    android:id="@id/training_programs"
-                    style="@style/NavigationButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_tab_programs"
-                    android:text="@string/training_programs" />
+                <!--<Button-->
+                    <!--android:id="@id/training_programs"-->
+                    <!--style="@style/NavigationButton"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:drawableLeft="@drawable/ic_tab_programs"-->
+                    <!--android:text="@string/training_programs" />-->
 
 
                 <!--<View style="@style/NavigationDivider" />

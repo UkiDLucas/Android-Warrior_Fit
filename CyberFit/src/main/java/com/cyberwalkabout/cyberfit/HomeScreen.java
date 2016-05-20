@@ -221,6 +221,11 @@ public class HomeScreen extends NavigationActivity implements SearchView.OnQuery
         }
     }
 
+    /**
+     * Driven by the selection of the Drawer item
+     * @param id
+     * @return
+     */
     private Fragment createFragment(int id) {
         switch (id) {
             case R.id.exercise_history:
