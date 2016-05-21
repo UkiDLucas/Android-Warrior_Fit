@@ -8,8 +8,8 @@ android {
         applicationId "com.cyberwalkabout.cyberfit"
         minSdkVersion 16 // We will only support Android 4.1, Jelly Bean, API 16 and up
         targetSdkVersion 23
-        versionCode 22
-        versionName "22"
+        versionCode 23
+        versionName "23"
 
         multiDexEnabled = true
         testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
