@@ -81,7 +81,7 @@
     <string name="exercise_history_header_text_today">Sets completed today:</string>
 
     <string name="login_screen_title">Connect via Social Network</string>
-    <string name="login_screen_subtitle">Login with social network is optional, however it will allow you to back-up your data and connect with friends who use this application.</string>
+    <string name="login_screen_subtitle">Login with social network is optional, however in the future it will allow you to connect with friends who use this application.</string>
     <string name="profile_screen_title">My Prfofile</string>
     <string name="info_screen_title">Info</string>
     <string name="goals_screen_title">My Goals</string>
