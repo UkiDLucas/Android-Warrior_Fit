@@ -11,19 +11,20 @@ import com.cyberwalkabout.cyberfit.model.v2.Program;
 import com.cyberwalkabout.cyberfit.model.v2.User;
 import com.flurry.android.FlurryAgent;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 import java.util.TimeZone;
 
 /**
  * @author Andrii Kovalov, Uki D. Lucas
  */
 public class FlurryAdapter {
-    private static final String TAG = FlurryAdapter.class.getSimpleName();
-
-    public static final String FLURRY_KEY = "5FPP9RBB64GJTCPJ47MG";
     public static final String FLURRY_EVENT_EXERCISE_COMPLETED = "exercise_completed";
     public static final String FLURRY_EVENT_SOCIAL_NETWORK_LOGIN = "social_network_login";
     public static final String FLURRY_EVENT_PROGRAM_OPENED = "program_opened";
@@ -38,22 +39,35 @@ public class FlurryAdapter {
     public static final String FLURRY_EVENT_DELETE_SCHEDULE_ENTRY = "delete_schedule_entry";
     public static final String FLURRY_EVENT_SHARE_SCHEDULE = "share_schedule";
     public static final String FLURRY_EVENT_SET_USER_GOALS = "set_user_goals";
-
     public static final String FLURRY_EVENT_EXERCISE_LOG_OPENED = "exercise_log_opened";
-
+    private static final String TAG = FlurryAdapter.class.getSimpleName();
     private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
+    private static final FlurryAdapter INSTANCE = new FlurryAdapter();
 
     static {
         TIME_FORMAT.setTimeZone(TimeZone.getTimeZone("GMT+0"));
     }
 
-    private static final FlurryAdapter INSTANCE = new FlurryAdapter();
+    public String FLURRY_KEY; // in src/main/assets/secret.properties
+
+    private FlurryAdapter() {
+
+        Properties prop = new Properties();
+
+        try {
+            //TODO Uki: not finished: java.io.FileNotFoundException: cyberfit_prod.properties: open failed: ENOENT (No such file or directory)
+
+            File file = new File("cyberfit_prod.properties");
+            Log.d(TAG, "Attempting to read: " + file.getAbsolutePath());
+            prop.load(new FileInputStream(file));
+            Log.d(TAG, "Reading FLURRY_KEY: " + prop.getProperty("FLURRY_KEY"));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     public static FlurryAdapter getInstance() {
         return INSTANCE;
-    }
-
-    private FlurryAdapter() {
     }
 
     public void startSession(Context context) {
