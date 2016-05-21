@@ -29,14 +29,11 @@ import com.cyberwalkabout.cyberfit.model.v2.User;
 import com.cyberwalkabout.cyberfit.util.Const;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.Profile;
 import com.facebook.ProfileTracker;
 import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
@@ -138,36 +135,36 @@ public class LoginScreen extends AppCompatActivity implements
     }
 
     private void initFacebookLogin() {
-        facebookLoginButton = (LoginButton) findViewById(R.id.facebook_login_btn);
-        facebookLoginButton.setReadPermissions("email", "public_profile", "user_birthday");
-
-        callbackManager = CallbackManager.Factory.create();
-        facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                Log.e(TAG, "Facebook: onSuccess" + loginResult);
-            }
-
-            @Override
-            public void onCancel() {
-                Log.e(TAG, "Facebook: onCancel");
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                Log.e(TAG, "Facebook: onError" + error);
-            }
-        });
-
-        facebookProfileTracker = new ProfileTracker() {
-            @Override
-            protected void onCurrentProfileChanged(Profile oldProfile,
-                                                   Profile currentProfile) {
-                if (currentProfile != null) {
-                    signInFacebook(currentProfile);
-                }
-            }
-        };
+//        facebookLoginButton = (LoginButton) findViewById(R.id.facebook_login_btn);
+//        facebookLoginButton.setReadPermissions("email", "public_profile", "user_birthday");
+//
+//        callbackManager = CallbackManager.Factory.create();
+//        facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//                Log.e(TAG, "Facebook: onSuccess" + loginResult);
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//                Log.e(TAG, "Facebook: onCancel");
+//            }
+//
+//            @Override
+//            public void onError(FacebookException error) {
+//                Log.e(TAG, "Facebook: onError" + error);
+//            }
+//        });
+//
+//        facebookProfileTracker = new ProfileTracker() {
+//            @Override
+//            protected void onCurrentProfileChanged(Profile oldProfile,
+//                                                   Profile currentProfile) {
+//                if (currentProfile != null) {
+//                    signInFacebook(currentProfile);
+//                }
+//            }
+//        };
     }
 
     @Override
@@ -189,6 +186,7 @@ public class LoginScreen extends AppCompatActivity implements
                 googleLoginButtonClicked();
                 break;
             case R.id.not_now:
+                FlurryAdapter.getInstance().socialNetworkLogin("Not Now"); // User chose not to log in
                 onBackPressed();
                 break;
         }

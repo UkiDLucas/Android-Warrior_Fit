@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.TimeZone;
 
 /**
- * @author Andrii Kovalov
+ * @author Andrii Kovalov, Uki D. Lucas
  */
 public class FlurryAdapter {
     private static final String TAG = FlurryAdapter.class.getSimpleName();
@@ -145,9 +145,10 @@ public class FlurryAdapter {
         FlurryAgent.logEvent(FLURRY_EVENT_INFO_OPENED, args);
     }
 
-    public void socialNetworkLogin(String tokenType) {
+    public void socialNetworkLogin(String loginAction) {
+        Log.d(TAG, "socialNetworkLogin: " + loginAction);
         Map<String, String> args = new HashMap<String, String>();
-        args.put("type", tokenType);
+        args.put("action_taken", loginAction);
         FlurryAgent.logEvent(FLURRY_EVENT_SOCIAL_NETWORK_LOGIN, args);
     }
 

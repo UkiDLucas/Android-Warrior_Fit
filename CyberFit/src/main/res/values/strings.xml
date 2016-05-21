@@ -81,7 +81,12 @@
     <string name="exercise_history_header_text_today">Sets completed today:</string>
 
     <string name="login_screen_title">Login via Social Network</string>
-    <string name="login_screen_subtitle">Login with social network is optional, however in the future it will allow you to connect with friends who use this application.</string>
+    <string name="login_screen_subtitle">Login with social network is optional, however in the future it will allow you to connect with friends who use this application. \nYour exercises will be added to statistics anonymously to improve this app, however non of your identification data will be collected.</string>
+    <string name="login">Login</string>
+    <string name="login_view_text">You are logged in using %1$s</string>
+    <string name="login_succcessful_notice">You have successfully logged in via %1$s.</string>
+
+
     <string name="profile_screen_title">My Prfofile</string>
     <string name="info_screen_title">Info</string>
     <string name="goals_screen_title">My Goals</string>
@@ -192,7 +197,6 @@
     <string name="splash_screen_text1"><![CDATA[<html><b>CyberFit:</b> video-based\ntraining program</html>]]></string>
     <string name="splash_screen_text2">by CyberWalkAbout.com</string>
 
-    <string name="login_view_text">You are logged in using %1$s</string>
     <string name="photo_chooser_dialog_title">Select or take a new Picture</string>
 
     <string name="goals_filter_title">Filter exercises based on your interests:</string>
@@ -221,7 +225,9 @@
     Hey,<br><br>I recently joined CyberFitness - an app that allows me to keep track of my workouts with fun exercises. Best part is that I\'m able to invite you! Lets train together! <a href=\'http://bit.ly/1brIZHH\'>Download the app</a> If you want more information: <a href=\'http://bit.ly/1jPjIqW\'>CyberWalkAbout.com</a>
     <br><br><i>CyberFitness is created by <a href=\'http://bit.ly/1jPjIqW\'>CyberWalkAbout.com</a> - a mobile development company specializing in state-of-the-art user experience design for Android and Apple iOS mobile devices. Currently serving clients in both Chicago and LA.</i>
     </body></html>]]></string>
-    <string name="login_succcessful_notice">You have successfully logged in via %1$s.</string>
+
+
+
     <string name="drawer_open">drawer open</string>
     <string name="drawer_close">drawer close</string>
 
@@ -281,7 +287,6 @@
     <string name="dismiss">Dismiss</string>
 
     <string name="change">Change</string>
-    <string name="login">Login</string>
 
     <string name="tap_to_open_profile">LOG IN</string>
 

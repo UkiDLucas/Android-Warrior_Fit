@@ -26,7 +26,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"
-        android:gravity="center"
+        android:gravity="left"
         android:text="@string/login_screen_subtitle"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@android:color/tertiary_text_light" />
@@ -36,7 +36,8 @@
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/google_login_btn"
-        android:layout_width="match_parent"
+        android:layout_width="130dp"
+
         android:layout_height="48dp"
         android:layout_marginTop="24dp" />
 
@@ -56,8 +57,9 @@
         android:id="@+id/not_now"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="24dp"
-        android:gravity="center_horizontal"
+        android:gravity="right"
         android:text="@string/not_now"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#0077CD"
