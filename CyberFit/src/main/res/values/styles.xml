@@ -1,5 +1,6 @@
 <resources>
 
+
     <style name="CyberFitAppThemeBase" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowActionBar">false</item>
         <item name="windowActionBar">false</item>
@@ -94,7 +95,7 @@
         <!-- @hide The layout of the number picker. -->
         <attr name="internalLayout" format="reference" />
         <!-- @hide The drawable for pressed virtual (increment/decrement) buttons. -->
-        <attr name="virtualButtonPressedDrawable" format="reference"/>
+        <attr name="virtualButtonPressedDrawable" format="reference" />
     </declare-styleable>
 
     <style name="NPWidget">

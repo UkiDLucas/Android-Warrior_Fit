@@ -31,24 +31,26 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@android:color/tertiary_text_light" />
 
+    <!-- Google+ button is off-center
+    and needs style of Material Raised Buttons -->
+
     <com.google.android.gms.common.SignInButton
         android:id="@+id/google_login_btn"
-        android:foregroundGravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="24dp" />
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/facebook_login_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginTop="8dp"
-        android:paddingBottom="11dp"
-        android:paddingTop="11dp" />
+    <!-- Facebook login functionality needs update update -->
+    <!--<com.facebook.login.widget.LoginButton-->
+    <!--android:id="@+id/facebook_login_btn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="4dp"-->
+    <!--android:layout_marginRight="4dp"-->
+    <!--android:layout_marginTop="8dp"-->
+    <!--android:paddingBottom="11dp"-->
+    <!--android:paddingTop="11dp" />-->
 
-    <!--android:layout_gravity="center_horizontal"-->
 
     <TextView
         android:id="@+id/not_now"
@@ -61,5 +63,4 @@
         android:textColor="#0077CD"
         android:textStyle="" />
 
-    <!--android:background="@drawable/apptheme_list_selector"-->
 </LinearLayout>
