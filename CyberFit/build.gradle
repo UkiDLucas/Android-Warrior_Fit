@@ -110,7 +110,7 @@ dependencies {
 
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
     compile project(path: ':dbshared')
-    compile project(path: ':DBShared')
+
 }
 
 task initReleaseConfig << {

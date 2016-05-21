@@ -1,7 +1,5 @@
 include ':CyberFit',
         ':modules:ICSNumberPicker',
         ':modules:ViewPagerIndicator',
-        'DBShared',
-        'DBMaker',
         'dbmaker',
         'dbshared'
