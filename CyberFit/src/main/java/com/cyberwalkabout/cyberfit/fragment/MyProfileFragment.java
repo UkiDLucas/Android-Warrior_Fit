@@ -200,6 +200,7 @@ public class MyProfileFragment extends Fragment implements View.OnClickListener,
                             imageUri = data.getData();
                         } else {
                             Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
+                            //TODO Uki: taking photo crashes the app
                             imageUri = Uri.parse(MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), imageBitmap, generatePhotoFileName(), null));
                         }
 
