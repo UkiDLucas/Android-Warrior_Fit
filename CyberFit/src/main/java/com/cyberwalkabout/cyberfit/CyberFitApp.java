@@ -6,6 +6,7 @@ import android.support.multidex.MultiDex;
 import android.util.Log;
 
 import com.cyberwalkabout.cyberfit.db.sqlite.schema.DBSchema;
+import com.cyberwalkabout.cyberfit.flurry.FlurryAdapter;
 import com.cyberwalkabout.cyberfit.model.v2.Exercise;
 import com.cyberwalkabout.cyberfit.model.v2.ExerciseSession;
 import com.cyberwalkabout.cyberfit.model.v2.LocationInfo;
@@ -34,7 +35,9 @@ public class CyberFitApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        FacebookSdk.sdkInitialize(getApplicationContext());
+        FlurryAdapter.getInstance().startSession(this); // We want analytics from beginning.
+        FlurryAdapter.getInstance().logEventAppOpened();
+        FacebookSdk.sdkInitialize(getApplicationContext()); //TODO Uki: init Fb only when needed
         //exportDbToSdCard();
     }
 
@@ -44,6 +47,9 @@ public class CyberFitApp extends Application {
         MultiDex.install(this);
     }
 
+    /**
+     * TODO: Provide explanation: if no longer used, then remove.
+     */
     @Deprecated
     private void exportDbToSdCard() {
         try {

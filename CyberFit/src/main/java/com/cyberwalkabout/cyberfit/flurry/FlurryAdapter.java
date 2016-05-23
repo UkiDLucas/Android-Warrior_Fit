@@ -1,6 +1,8 @@
 package com.cyberwalkabout.cyberfit.flurry;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -11,9 +13,8 @@ import com.cyberwalkabout.cyberfit.model.v2.Program;
 import com.cyberwalkabout.cyberfit.model.v2.User;
 import com.flurry.android.FlurryAgent;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -25,6 +26,8 @@ import java.util.TimeZone;
  * @author Andrii Kovalov, Uki D. Lucas
  */
 public class FlurryAdapter {
+
+    public static final String FLURRY_EVENT_APP_OPENED = "app_opened";
     public static final String FLURRY_EVENT_EXERCISE_COMPLETED = "exercise_completed";
     public static final String FLURRY_EVENT_SOCIAL_NETWORK_LOGIN = "social_network_login";
     public static final String FLURRY_EVENT_PROGRAM_OPENED = "program_opened";
@@ -40,43 +43,72 @@ public class FlurryAdapter {
     public static final String FLURRY_EVENT_SHARE_SCHEDULE = "share_schedule";
     public static final String FLURRY_EVENT_SET_USER_GOALS = "set_user_goals";
     public static final String FLURRY_EVENT_EXERCISE_LOG_OPENED = "exercise_log_opened";
-    private static final String TAG = FlurryAdapter.class.getSimpleName();
     private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
     private static final FlurryAdapter INSTANCE = new FlurryAdapter();
+    private static final String TAG = FlurryAdapter.class.getSimpleName();
 
     static {
         TIME_FORMAT.setTimeZone(TimeZone.getTimeZone("GMT+0"));
     }
 
-    public String FLURRY_KEY; // in src/main/assets/secret.properties
-
     private FlurryAdapter() {
-
-        Properties prop = new Properties();
-
-        try {
-            //TODO Uki: not finished: java.io.FileNotFoundException: cyberfit_prod.properties: open failed: ENOENT (No such file or directory)
-
-            File file = new File("cyberfit_prod.properties");
-            Log.d(TAG, "Attempting to read: " + file.getAbsolutePath());
-            prop.load(new FileInputStream(file));
-            Log.d(TAG, "Reading FLURRY_KEY: " + prop.getProperty("FLURRY_KEY"));
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
     }
 
     public static FlurryAdapter getInstance() {
         return INSTANCE;
     }
 
+
+    /**
+     * FlurryAdapter.getInstance().startSession(this);
+     *
+     * @param context
+     */
     public void startSession(Context context) {
-        FlurryAgent.onStartSession(context, FLURRY_KEY);
+
+        String flurryKey = "";
+        flurryKey = fetchPropertyForFlurryKey(context, flurryKey);
+
+
+        if (flurryKey != null && !flurryKey.equals("")) {
+            Log.i(TAG, "Starting Flurry session for " + flurryKey);
+            FlurryAgent.init(context, flurryKey);
+            FlurryAgent.onStartSession(context);
+        } else {
+            Log.e(TAG, "FLURRY KEY not provided: ");
+        }
+    }
+
+    private String fetchPropertyForFlurryKey(Context context, String flurryKey) {
+        try {
+            Resources resources = context.getResources();
+            AssetManager assetManager = resources.getAssets();
+            InputStream inputStream = assetManager.open("secret.properties");
+            Properties properties = new Properties();
+            properties.load(inputStream);
+            Log.d(TAG, "properties: " + properties);
+
+            flurryKey = properties.getProperty("FLURRY_KEY");
+            Log.d(TAG, "Reading FLURRY_KEY: " + flurryKey); //TODO: turn off in PROD
+
+        } catch (IOException e) {
+            Log.d(TAG, e.getMessage());
+        } catch (Exception e) {
+            Log.d(TAG, e.getMessage());
+        }
+        return flurryKey;
     }
 
     public void endSession(Context context) {
         FlurryAgent.onEndSession(context);
     }
+
+
+    public void logEventAppOpened() {
+        Log.d(TAG, FLURRY_EVENT_APP_OPENED);
+        FlurryAgent.logEvent(FLURRY_EVENT_APP_OPENED); //TODO add app version parameter
+    }
+
 
     public void programOpened(Program program, boolean isSubscribed, int numberOfExercises) {
         if (program != null) {

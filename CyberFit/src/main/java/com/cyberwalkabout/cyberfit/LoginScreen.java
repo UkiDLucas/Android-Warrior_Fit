@@ -171,6 +171,7 @@ public class LoginScreen extends AppCompatActivity implements
     protected void onStart() {
         super.onStart();
         // mGoogleApiClient.connect();
+        FlurryAdapter.getInstance().startSession(this);
     }
 
     @Override
