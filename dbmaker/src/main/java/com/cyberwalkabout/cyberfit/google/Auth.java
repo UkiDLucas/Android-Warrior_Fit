@@ -14,7 +14,9 @@ import com.google.api.client.util.store.DataStore;
 import com.google.api.client.util.store.FileDataStoreFactory;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.List;
@@ -33,6 +35,7 @@ public class Auth {
      * Define a global instance of the JSON factory.
      */
     public static final JsonFactory JSON_FACTORY = new JacksonFactory();
+
     static {
     }
 
@@ -50,7 +53,15 @@ public class Auth {
     public static Credential authorize(List<String> scopes, String credentialDatastore) throws IOException {
 
         // Load client secrets.
-        Reader clientSecretReader = new InputStreamReader(Auth.class.getResourceAsStream("/google_client_secrets.json"));
+
+        InputStream in = Auth.class.getResourceAsStream("/google_client_secrets.json");
+
+        if (in == null) {
+            System.err.println("google_client_secrets.json file not found, make sure to put it in src/main/resources/google_client_secrets.json");
+            throw new FileNotFoundException("google_client_secrets.json");
+        }
+
+        Reader clientSecretReader = new InputStreamReader(in);
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, clientSecretReader);
 
         // Checks that the defaults have been replaced (Default = "Enter X here").
