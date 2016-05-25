@@ -1,21 +1,9 @@
-To build application execute following command:
+# Database preparation
 
-```gradle clean build
-
-To run:
-
-```gradle bootRun
-
-For this first time it is necessary to authenticate application with associated google account, so for the first time when application started you will see following message in log:
-
-Please open the following address in your browser:
-  https://accounts.google.com/o/oauth2/auth?client_id=1001707891374-e30n5nhlo53ek1npe6pb7scldqr62qi9.apps.googleusercontent.com&redirect_uri=http://localhost:8080/Callback&response_type=code&scope=https://www.googleapis.com/auth/youtube.readonly
-
-Open provided link in browser and signin in cyberwalkaboutgae@gmail.com account.
-Once done application will proceed with execution printing following log messages:
-
-.23:18:39.448 [main] INFO  c.c.c.d.s.YoutubeContentPopulator - Populate database with data from youtube.com
-.23:18:39.467 [main] DEBUG c.c.c.d.s.YoutubeContentPopulator - Retrieved 1 youtube ids from 'exercise' table
-.23:18:40.214 [main] INFO  com.cyberwalkabout.cyberfit.DBMaker - DB successfully created at '~/CyberFit_Android/dbmaker/cyberfit.db'
-
-Once execution finished created database could be found by provided path on the log.
+1. To enable/disable Youtube API navigate to dbmaker/src/main/java/com/cyberwalkabout/cyberfit/db/sqlite/SQLiteDBCreator.java and adjust populateFromYoutube variable as needed
+  1. If Youtube API enabled
+    1. Generate client id and client secret that will be used to authenticate with Youtube API [Reference](https://developers.google.com/api-client-library/python/guide/aaa_client_secrets)
+    2. Put google_client_secrets.json file in dbmaker/src/main/resources folder
+2. To run database generator navigate to dbmaker directory and execute `gradle bootRun`.
+3. Successful output should print something like this `.22:21:30.066 [main] INFO  com.cyberwalkabout.cyberfit.DBMaker - DB successfully created at '/Volumes/FusionDrive/Cyber/android-warrior-fit/dbmaker/build/db/cyberfit_v2.db'`
+4. Copy generated db file to `CyberFit/src/main/assets`
