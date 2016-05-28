@@ -139,20 +139,20 @@
     <!--<string name="tab_goals">My Goals</string>-->
 
     <string name="btn_feedback">Email us!</string>
-    <string name="btn_share_this_app">Spread love, share CyberFit app</string>
-    <string name="btn_rate_this_app">Rate CyberFit</string>
+    <string name="btn_share_this_app">Share WarriorFit app</string>
+    <string name="btn_rate_this_app">Rate WarriorFit app</string>
     <string name="btn_replay_tutorial">Tutorial</string>
     <string name="btn_blog">Our Facebook page</string>
     <string name="info_text"><b>CyberWalkAbout.com</b> is a mobile app development company specializing in state-of-the-art user experience design for <b>Android</b> and <b>Apple iOS mobile devices</b>. Currently serving clients in Chicago and Seattle.\n\n<b>To sign up the best trainers we need more users like you, please rate and share this app.</b>\n\n<b>Your email feedback will be appreciated.</b></string>
     <string name="market_app_not_found_notice">Couldn\'t launch google play app</string>
     <string name="share_app_chooser_popup_title">Share via</string>
     <string name="email_chooser_popup_title">Send via</string>
-    <string name="feedback_email_subject">Feedback for CyberFit app - Android v.%1$s</string>
+    <string name="feedback_email_subject">Feedback for WarriorFit app - Android v.%1$s</string>
     <string name="schedules_email_subject">Schedules</string>
-    <string name="share_this_app_message">I would like to share with you #CyberFit video-based fitness app http://bit.ly/CyberFit</string>
-    <string name="share_running_summary_message">I completed %1$s in %2$s.  Shared via #CyberFitness app http://bit.ly/CyberFit</string>
-    <string name="share_training_program_message">I use #CyberFit app exercise program \"%1$s\" by %2$s http://bit.ly/CyberFit</string>
-    <string name="share_exercise_history_message">I worked out with #CyberFit app:\n%1$shttp://bit.ly/CyberFit</string>
+    <string name="share_this_app_message">I would like to share with you #WarriorFitApp.com video-based fitness app http://WarriorFitApp.com</string>
+    <string name="share_running_summary_message">I completed %1$s in %2$s.  Shared via #WarriorFitApp.com</string>
+    <string name="share_training_program_message">I use #WarriorFitApp.com app exercise program \"%1$s\" by %2$s http://WarriorFitApp.com</string>
+    <string name="share_exercise_history_message">I worked out with #WarriorFitApp.com app:\n%1$shttp://bit.ly/CyberFit</string>
 
 
     <string-array name="day_of_week">
