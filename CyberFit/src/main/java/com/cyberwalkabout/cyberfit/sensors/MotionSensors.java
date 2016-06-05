@@ -21,6 +21,8 @@ public class MotionSensors {
     float gyroAccelerationLast;
     float gyroAccelerationCurrent;
     float gyroAcceleration;
+    long millisecondsStart;
+    long millisecondsEnd;
 
     public MotionSensors(Context context) {
         sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -30,6 +32,7 @@ public class MotionSensors {
     }
 
     public void startTracking() {
+        millisecondsStart = System.currentTimeMillis();
         sensorManager.registerListener(sensorEventListener,
                 sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE),
                 SensorManager.SENSOR_DELAY_NORMAL); // TODO in the future consider SENSOR_DELAY_GAME
@@ -45,7 +48,7 @@ public class MotionSensors {
 
             switch (event.sensor.getType()) {
                 case Sensor.TYPE_GYROSCOPE:
-                    Log.d(TAG, "onSensorChanged  Sensor.TYPE_GYROSCOPE " + event);
+                    //Log.d(TAG, "onSensorChanged  Sensor.TYPE_GYROSCOPE " + event);
 
                     float x = event.values[0];
                     float y = event.values[1];
@@ -54,8 +57,8 @@ public class MotionSensors {
                     gyroAccelerationCurrent = (float) Math.sqrt((double) (x * x + y * y + z * z));
                     float delta = gyroAccelerationCurrent - gyroAccelerationLast;
                     gyroAcceleration = gyroAcceleration * 0.9f + delta; // perform low-cut filter
-
-                    Log.d(TAG, "onSensorChanged  Sensor.TYPE_GYROSCOPE gyroAcceleration " + gyroAcceleration);
+                    long timePassed = System.currentTimeMillis() - millisecondsStart;
+                    Log.d(TAG, "onSensorChanged  Sensor.TYPE_GYROSCOPE gyroAcceleration " + timePassed + "," + x + "," + y + "," + z + "," + gyroAcceleration);
                     updateOrientation(x, y, z);
                     break;
                 case Sensor.TYPE_GRAVITY:
