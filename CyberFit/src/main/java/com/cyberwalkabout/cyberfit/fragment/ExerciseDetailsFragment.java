@@ -40,6 +40,7 @@ import com.cyberwalkabout.cyberfit.model.v2.Exercise;
 import com.cyberwalkabout.cyberfit.model.v2.ExerciseSession;
 import com.cyberwalkabout.cyberfit.model.v2.ExerciseState;
 import com.cyberwalkabout.cyberfit.model.v2.factory.ExerciseSessionCursorFactory;
+import com.cyberwalkabout.cyberfit.sensors.MotionSensors;
 import com.cyberwalkabout.cyberfit.util.Const;
 import com.cyberwalkabout.cyberfit.util.ConvertUtils;
 import com.cyberwalkabout.cyberfit.widget.ExerciseHistoryView;
@@ -65,6 +66,7 @@ import java.util.TimeZone;
  */
 public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogListener, LoaderManager.LoaderCallbacks<Cursor> {
 
+    private MotionSensors sensors;
     public static final int DESCRIPTION_MAX_CHARACTERS_NOT_COLLAPSIBLE = 240;
     public static final int DESCRIPTION_MAX_LINES_COLLAPSED = 4;
     //private static final Logger LOG = LoggerFactory.getLogger(ExerciseDetailsFragment.class);
@@ -155,7 +157,7 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
             }
 
             if (isTimerSet() && timeLeft == 0) {
-                moveToTimeRecordedState();
+                exerciseTimeRecorded();
                 contentProviderAdapter.updateExerciseSession(getActivity(), exerciseSession, false);
             }
         }
@@ -228,6 +230,7 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        sensors = new MotionSensors(getActivity());
 
         Intent intent = getActivity().getIntent();
 
@@ -278,7 +281,7 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
         nextExerciseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doneExercise();
+                exerciseDone();
                 exerciseState = ExerciseState.DONE;
                 Log.d(TAG, "Button nextExerciseButton.onCLick() " + exerciseState);
                 getActivity().finish();
@@ -294,6 +297,7 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
         startExerciseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sensors.startTracking();
                 exerciseState = ExerciseState.STARTED;
                 Log.d(TAG, "Button startExerciseButton.onCLick() " + exerciseState);
 
@@ -325,6 +329,7 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
         stopExerciseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sensors.stopTracking();
 
                 vibrator.cancel();
                 if (alarm.isPlaying()) {
@@ -417,7 +422,7 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
                 stopExerciseButton.setVisibility(View.GONE);
                 nextExerciseButton.setVisibility(View.GONE);
 
-                doneExercise();
+                exerciseDone();
 
                 exerciseState = ExerciseState.READY_TO_START;
                 Log.d(TAG, "Button anotherSetButton.onCLick() " + exerciseState);
@@ -557,12 +562,12 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
         *//*if (exercise.isTrackTime() && !exercise.isTrackRepetitions() && exerciseSession.getTime() < 5000) {
             showConfirmationPopup();
         } else {*//*
-        doneExercise();
+        exerciseDone();
         //}
     }*/
 
 
-    private void moveToTimeRecordedState() {
+    private void exerciseTimeRecorded() {
         vibrator.cancel();
 
         if (alarm.isPlaying()) {
@@ -583,7 +588,7 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
         exerciseSession.setState(exerciseState);
     }
 
-    private void doneExercise() {
+    private void exerciseDone() {
         exerciseState = ExerciseState.DONE;
 
         exerciseSession.setTimestampCompleted(System.currentTimeMillis());
@@ -873,7 +878,7 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
     @Override
     public void onPositiveButtonClicked(int requestCode) {
         if (requestCode == REQUEST_POPUP_CONFIRM_RECORD) {
-            doneExercise();
+            exerciseDone();
             exerciseSession.setState(exerciseState);
             contentProviderAdapter.updateExerciseSession(getActivity(), exerciseSession, false);
             loadHistory();
