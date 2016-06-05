@@ -247,7 +247,7 @@ public class MapExerciseSummaryScreen extends AppCompatActivity {
                             polyline.getPoints().clear();
                             polyline.add(latLng);
                         } else if (LocationInfo.LocationType.FINISH.equals(locationInfo.getType())) {
-                            map.addMarker(new MarkerOptions().position(latLng).title(getString(R.string.finish))
+                            map.addMarker(new MarkerOptions().position(latLng).title(getString(R.string.exercise_next))
                                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
                             polyline.add(latLng);

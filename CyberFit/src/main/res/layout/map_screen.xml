@@ -46,7 +46,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:drawableLeft="@drawable/ic_finish"
-                        android:text="@string/finish"
+                        android:text="@string/exercise_next"
                         android:visibility="gone" />
 
                 </FrameLayout>

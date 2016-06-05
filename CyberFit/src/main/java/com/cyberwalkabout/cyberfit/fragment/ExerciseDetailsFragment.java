@@ -14,6 +14,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -59,16 +60,19 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+/**
+ * @author Andrii Kovalov, Uki D. Lucas
+ */
 public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogListener, LoaderManager.LoaderCallbacks<Cursor> {
-    private static final String TAG = ExerciseDetailsFragment.class.getSimpleName();
 
-    private static final int REQUEST_POPUP_CONFIRM_RECORD = 1;
-    private static final int RECOVERY_DIALOG_REQUEST = 2;
-
-    private static final String TIMER_BUTTON_FORMAT = "%02d:%02d:%02d";
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     public static final int DESCRIPTION_MAX_CHARACTERS_NOT_COLLAPSIBLE = 240;
     public static final int DESCRIPTION_MAX_LINES_COLLAPSED = 4;
+    //private static final Logger LOG = LoggerFactory.getLogger(ExerciseDetailsFragment.class);
+    private static final String TAG = ExerciseDetailsFragment.class.getSimpleName();
+    private static final int REQUEST_POPUP_CONFIRM_RECORD = 1;
+    private static final int RECOVERY_DIALOG_REQUEST = 2;
+    private static final String TIMER_BUTTON_FORMAT = "%02d:%02d:%02d";
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
     static {
         dateFormat.setTimeZone(TimeZone.getTimeZone("GMT+0"));
@@ -104,10 +108,14 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
     private Button enterDistanceBtn;
     private Button enterRepsBtn;
     private Exercise exercise;
-    private Button anotherSetBtn;
     private ImageView expandCollapseDescriptionBtn;
 
-    private Button triggerExercise;
+    private Button doneExercisingButton;
+    private Button startExerciseButton;
+    private Button stopExerciseButton;
+    private Button nextExerciseButton;
+    private Button anotherSetButton;
+
     private TextView dataToEnterNotice;
     private Button enterTimeButton;
     private TextView exerciseNameText;
@@ -148,8 +156,6 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
 
             if (isTimerSet() && timeLeft == 0) {
                 moveToTimeRecordedState();
-                exerciseSession.setState(exerciseState);
-
                 contentProviderAdapter.updateExerciseSession(getActivity(), exerciseSession, false);
             }
         }
@@ -185,7 +191,6 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        anotherSetBtn = (Button) view.findViewById(R.id.another_set_btn);
 
         enterDataContainer = view.findViewById(R.id.enter_data_container);
         enterDistanceBtn = (Button) enterDataContainer.findViewById(R.id.enter_distance_btn);
@@ -203,7 +208,14 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
 
         enterTimeButton = (Button) view.findViewById(R.id.enter_time_btn);
         dataToEnterNotice = (TextView) view.findViewById(R.id.exercise_details_to_enter_notice);
-        triggerExercise = (Button) view.findViewById(R.id.trigger_exercise_btn);
+
+        startExerciseButton = (Button) view.findViewById(R.id.btn_start_exercise);
+        stopExerciseButton = (Button) view.findViewById(R.id.btn_stop_exercise);
+        nextExerciseButton = (Button) view.findViewById(R.id.btn_next_exercise);
+        anotherSetButton = (Button) view.findViewById(R.id.btn_another_set);
+
+
+        doneExercisingButton = (Button) view.findViewById(R.id.btn_exercise_log);
 
         exerciseHistoryView = (ExerciseHistoryView) view.findViewById(R.id.todays_history);
 
@@ -233,26 +245,18 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
             initDescription();
             displayExerciseImage();
             initTimeButton();
-            initTriggerExerciseButton();
+            initStartExerciseButton();
+            initStopExerciseButton();
+            initNextExerciseButton();
+            initDoneExercisingButton();
+            initAnotherSetButton();
+
 
             exerciseHistoryView.setNoticeButtonCLickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                 /*SimpleDialogFragment.createBuilder(getActivity(), getActivity().getSupportFragmentManager()).setMessage(R.string.exercise_notice)
                         .setPositiveButtonText(android.R.string.ok).show();*/
-                }
-            });
-
-            anotherSetBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    doneExercise();
-
-                    exerciseState = ExerciseState.READY_TO_START;
-                    Bundle args = new Bundle();
-                    args.putString(Const.EXERCISE_ID, exercise.getId());
-                    getLoaderManager().restartLoader(ContentProviderAdapter.LOADER_EXERCISE_IN_PROGRESS, args, ExerciseDetailsFragment.this);
-                    getLoaderManager().restartLoader(ContentProviderAdapter.LOADER_MOST_RECENT_COMPLETED_EXERCISE, args, ExerciseDetailsFragment.this);
                 }
             });
 
@@ -267,6 +271,113 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
             updateUIState();
         }
     }
+
+
+    private void initNextExerciseButton() {
+
+        nextExerciseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doneExercise();
+                exerciseState = ExerciseState.DONE;
+                Log.d(TAG, "Button nextExerciseButton.onCLick() " + exerciseState);
+                getActivity().finish();
+
+                updateUIState();
+            }
+        });
+    }
+
+
+    private void initStartExerciseButton() {
+
+        startExerciseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                exerciseState = ExerciseState.STARTED;
+                Log.d(TAG, "Button startExerciseButton.onCLick() " + exerciseState);
+
+
+                timeStart = System.currentTimeMillis();
+                handler.postDelayed(updateTimerTask, 0);
+                exerciseSession.setTimestampStarted(timeStart);
+                exerciseSession.setState(exerciseState);
+                contentProviderAdapter.updateExerciseSession(getActivity(), exerciseSession, false);
+
+                if (timerValues[0] == 0 && timerValues[1] == 0 && timerValues[2] == 0) {
+                    timerContainer.findViewById(R.id.time_left_container).setVisibility(View.GONE);
+                    timerContainer.findViewById(R.id.time_elapsed_container).setVisibility(View.VISIBLE);
+                } else {
+                    timeLeft = getTimerValue();
+                    timerContainer.findViewById(R.id.time_left_container).setVisibility(View.VISIBLE);
+                    timerContainer.findViewById(R.id.time_elapsed_container).setVisibility(View.GONE);
+                }
+
+                updateUIState();
+            }
+        });
+    }
+
+
+    private void initStopExerciseButton() {
+        stopExerciseButton.setVisibility(View.GONE);
+
+        stopExerciseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                vibrator.cancel();
+                if (alarm.isPlaying()) {
+                    alarm.stop();
+                }
+                timeLeft = timeStart = 0; // resets timers, TODO needs renaming
+                handler.removeCallbacks(updateTimerTask);
+
+                exerciseState = ExerciseState.TIME_RECORDED;
+                Log.d(TAG, "Button stopExerciseButton.onCLick() " + exerciseState);
+
+                if (exercise.isTrackRepetitions() || exercise.isTrackWeight() || exercise.isTrackDistance()) {
+                    // TODO what is the business rule here?
+                }
+
+                setupEnterDataFields(exercise);
+                exerciseSession.setState(exerciseState);
+                contentProviderAdapter.updateExerciseSession(getActivity(), exerciseSession, false);
+
+                setupEnterDataFields(exercise);
+
+                // init exercise record with last known data
+                if (!exerciseSession.hasRepetitions()) {
+                    exerciseSession.setRepetitions(getLastKnownRepetitions());
+                }
+
+                if (!exerciseSession.hasWeight()) {
+                    exerciseSession.setWeight(getLastKnownWeight());
+                }
+
+                if (!exerciseSession.hasDistance()) {
+                    exerciseSession.setDistance(getLastKnownDistance());
+                }
+
+                enterDataContainer.setVisibility(View.VISIBLE);
+
+                if (validateExerciseData()) {
+                    Log.d(TAG, "validateExerciseData VALID");
+                    nextExerciseButton.setVisibility(View.VISIBLE);
+                    doneExercisingButton.setVisibility(View.VISIBLE);
+                } else {
+                    Log.w(TAG, "validateExerciseData INVALID");
+                    nextExerciseButton.setVisibility(View.VISIBLE);
+                    doneExercisingButton.setVisibility(View.VISIBLE);
+                }
+
+
+                updateUIState();
+
+            }
+        });
+    }
+
 
     private void initTimeButton() {
         enterTimeButton.setText(String.format(TIMER_BUTTON_FORMAT, timerValues[0], timerValues[1], timerValues[2]));
@@ -290,9 +401,34 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
         });
     }
 
+
     private void initName() {
         String name = exercise.getName().trim();
         exerciseNameText.setText(name);
+    }
+
+    private void initAnotherSetButton() {
+        anotherSetButton.setVisibility(View.GONE);
+
+        anotherSetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startExerciseButton.setVisibility(View.VISIBLE);
+                stopExerciseButton.setVisibility(View.GONE);
+                nextExerciseButton.setVisibility(View.GONE);
+
+                doneExercise();
+
+                exerciseState = ExerciseState.READY_TO_START;
+                Log.d(TAG, "Button anotherSetButton.onCLick() " + exerciseState);
+                Bundle args = new Bundle();
+                args.putString(Const.EXERCISE_ID, exercise.getId());
+                getLoaderManager().restartLoader(ContentProviderAdapter.LOADER_EXERCISE_IN_PROGRESS, args, ExerciseDetailsFragment.this);
+                getLoaderManager().restartLoader(ContentProviderAdapter.LOADER_MOST_RECENT_COMPLETED_EXERCISE, args, ExerciseDetailsFragment.this);
+
+                updateUIState();
+            }
+        });
     }
 
     private void initDescription() {
@@ -400,6 +536,7 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
         return super.onOptionsItemSelected(item);
     }
 
+
     private boolean isTimerSet() {
         return timerValues[0] != 0 || timerValues[1] != 0 || timerValues[2] != 0;
     }
@@ -414,36 +551,7 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
         getLoaderManager().restartLoader(ContentProviderAdapter.LOADER_MOST_RECENT_COMPLETED_EXERCISE, args, this);
     }
 
-    private void initTriggerExerciseButton() {
-        triggerExercise.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (exerciseState) {
-                    case READY_TO_START:
-                        moveToStartedState();
-                        break;
-                    case STARTED:
-                        moveToTimeRecordedState();
-                        break;
-                    case TIME_RECORDED:
-                        doneExercise();
-                        getActivity().finish();
-                        break;
-                    /*case DONE:
-                        getActivity().finish();
-                        break;*/
-                }
 
-                triggerExercise.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_red));
-
-                exerciseSession.setState(exerciseState);
-
-                contentProviderAdapter.updateExerciseSession(getActivity(), exerciseSession, false);
-
-                updateUIState();
-            }
-        });
-    }
 
     /*private void moveToDoneState() {
         *//*if (exercise.isTrackTime() && !exercise.isTrackRepetitions() && exerciseSession.getTime() < 5000) {
@@ -453,12 +561,6 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
         //}
     }*/
 
-    private void moveToStartedState() {
-        exerciseState = ExerciseState.STARTED;
-        timeStart = System.currentTimeMillis();
-        handler.postDelayed(updateTimerTask, 0);
-        exerciseSession.setTimestampStarted(timeStart);
-    }
 
     private void moveToTimeRecordedState() {
         vibrator.cancel();
@@ -470,21 +572,15 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
         exerciseState = ExerciseState.TIME_RECORDED;
 
         if (exercise.isTrackRepetitions() || exercise.isTrackWeight() || exercise.isTrackDistance()) {
-            triggerExercise.setVisibility(View.GONE);
+            // TODO what is the business rule here?
+            startExerciseButton.setVisibility(View.GONE);
         }
 
-        triggerExercise.setText(R.string.done);
-
-        timeLeft = timeStart = 0;
+        timeLeft = timeStart = 0; // resets timers, TODO needs renaming
         handler.removeCallbacks(updateTimerTask);
 
-        enterTimeContainer.setVisibility(View.GONE);
-        timerContainer.setVisibility(View.GONE);
-        dataToEnterNotice.setVisibility(View.GONE);
-
-        enterDataContainer.setVisibility(View.VISIBLE);
-
         setupEnterDataFields(exercise);
+        exerciseSession.setState(exerciseState);
     }
 
     private void doneExercise() {
@@ -500,17 +596,18 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
     }
 
     private void updateUIState() {
+        Log.d(TAG, "updateUIState " + exerciseState);
+
         switch (exerciseState) {
             case READY_TO_START: {
                 exerciseInfoContainer.setVisibility(View.VISIBLE);
-                triggerExercise.setBackgroundResource(R.drawable.button_green);
-
-                timerContainer.setVisibility(View.GONE);
                 enterTimeContainer.setVisibility(View.VISIBLE);
+                timerContainer.setVisibility(View.GONE);
                 enterDataContainer.setVisibility(View.GONE);
                 dataToEnterNotice.setVisibility(View.VISIBLE);
-                anotherSetBtn.setVisibility(View.GONE);
-                triggerExercise.setText(R.string.start);
+                nextExerciseButton.setVisibility(View.GONE);
+                stopExerciseButton.setVisibility(View.GONE);
+                doneExercisingButton.setVisibility(View.GONE);
 
                 initEnterDataContainer();
             }
@@ -518,8 +615,17 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
 
             case STARTED: {
                 exerciseInfoContainer.setVisibility(View.VISIBLE);
-                triggerExercise.setBackgroundResource(R.drawable.button_red);
-                triggerExercise.setText(R.string.stop);
+                timerContainer.setVisibility(View.VISIBLE);
+
+                enterTimeContainer.setVisibility(View.GONE);
+                startExerciseButton.setVisibility(View.GONE);
+                stopExerciseButton.setVisibility(View.VISIBLE);
+                doneExercisingButton.setVisibility(View.GONE);
+
+                exerciseState = ExerciseState.STARTED;
+                exerciseInfoContainer.setVisibility(View.VISIBLE);
+                //startExerciseButton.setBackgroundResource(R.drawable.button_red);
+                //startExerciseButton.setText(R.string.stop);
                 timerContainer.setVisibility(View.VISIBLE);
                 enterTimeContainer.setVisibility(View.GONE);
                 if (timerValues[0] == 0 && timerValues[1] == 0 && timerValues[2] == 0) {
@@ -531,21 +637,23 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
                     timerContainer.findViewById(R.id.time_elapsed_container).setVisibility(View.GONE);
                 }
                 if (validateExerciseData()) {
-                    anotherSetBtn.setVisibility(View.VISIBLE);
-                    triggerExercise.setText(R.string.finished);
-                    triggerExercise.setVisibility(View.VISIBLE);
+//                    anotherSetBtn.setVisibility(View.VISIBLE);
+                    //startExerciseButton.setText(R.string.exercise_next);
+                    //startExerciseButton.setVisibility(View.VISIBLE);
                 }
             }
             break;
 
             case TIME_RECORDED: {
-                exerciseInfoContainer.setVisibility(View.GONE);
-
-                triggerExercise.setBackgroundResource(R.drawable.button_red);
+                exerciseInfoContainer.setVisibility(View.VISIBLE);
                 enterTimeContainer.setVisibility(View.GONE);
                 timerContainer.setVisibility(View.GONE);
-                enterDataContainer.setVisibility(View.VISIBLE);
                 dataToEnterNotice.setVisibility(View.GONE);
+                enterDataContainer.setVisibility(View.VISIBLE);
+                startExerciseButton.setVisibility(View.GONE);
+                stopExerciseButton.setVisibility(View.GONE);
+                nextExerciseButton.setVisibility(View.VISIBLE);
+                doneExercisingButton.setVisibility(View.VISIBLE);
 
                 setupEnterDataFields(exercise);
 
@@ -565,28 +673,12 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
                 timeLeft = timeStart = 0;
                 handler.removeCallbacks(updateTimerTask);
 
-                validateAndDisplayButtons();
             }
             break;
-            /*case DONE: {
-                enterDataContainer.setVisibility(View.GONE);
-                validateAndDisplayButtons();
-            }*/
+
         }
     }
 
-    private void validateAndDisplayButtons() {
-        if (validateExerciseData()) {
-            anotherSetBtn.setVisibility(View.VISIBLE);
-
-            triggerExercise.setText(R.string.finished);
-            triggerExercise.setVisibility(View.VISIBLE);
-            triggerExercise.setBackgroundResource(R.drawable.button_red);
-        } else {
-            triggerExercise.setVisibility(View.GONE);
-            anotherSetBtn.setVisibility(View.GONE);
-        }
-    }
 
     private void setupEnterDataFields(Exercise exercise) {
         enterDataContainer.findViewById(R.id.weight_container).setVisibility(exercise.isTrackWeight() ? View.VISIBLE : View.GONE);
@@ -628,6 +720,23 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
         enterWeightBtn.setText(String.format("%.1f %s", weight, getString(som.getWeightUnitResource())));
         enterDistanceBtn.setText(String.format("%.1f %s", distance, getString(som.getDistanceUnitResource())));
     }
+
+
+    /**
+     * This button is used to FINISH exercise session (e.g. for today).
+     */
+    private void initDoneExercisingButton() {
+
+        doneExercisingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "Button doneExercisingButton.onCLick()");
+                getActivity().finish();
+                //TODO change to "Exercise Log" screen and Flurry all exercises done today
+            }
+        });
+    }
+
 
     private void initEnterDataContainer() {
         final AppSettings.SystemOfMeasurement som = appSettings.getSystemOfMeasurement();
@@ -776,9 +885,9 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
         if (requestCode == REQUEST_POPUP_CONFIRM_RECORD) {
             contentProviderAdapter.deleteExerciseSessionById(getActivity(), exerciseSession.getId());
             enterDataContainer.setVisibility(View.GONE);
-            anotherSetBtn.setVisibility(View.VISIBLE);
+//            anotherSetBtn.setVisibility(View.VISIBLE);
 
-            triggerExercise.setText(R.string.finished);
+            startExerciseButton.setText(R.string.finished);
         }
     }
 

@@ -7,9 +7,14 @@
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="done">Done</string>
-    <string name="finish">Finish</string>
     <string name="pause">Pause</string>
     <string name="resume">Resume</string>
+
+    <string name="exercise_start">Start Exercise</string>
+    <string name="exercise_stop">Stop Exercise</string>
+    <string name="exercise_next">OK, Next Exercise</string>
+    <string name="exercise_log">Show Exercise Log</string>
+
 
     <string name="by">by</string>
 
@@ -225,7 +230,6 @@
     Hey,<br><br>I recently joined CyberFitness - an app that allows me to keep track of my workouts with fun exercises. Best part is that I\'m able to invite you! Lets train together! <a href=\'http://bit.ly/1brIZHH\'>Download the app</a> If you want more information: <a href=\'http://bit.ly/1jPjIqW\'>CyberWalkAbout.com</a>
     <br><br><i>CyberFitness is created by <a href=\'http://bit.ly/1jPjIqW\'>CyberWalkAbout.com</a> - a mobile development company specializing in state-of-the-art user experience design for Android and Apple iOS mobile devices. Currently serving clients in both Chicago and LA.</i>
     </body></html>]]></string>
-
 
 
     <string name="drawer_open">drawer open</string>

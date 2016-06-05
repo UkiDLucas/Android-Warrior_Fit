@@ -144,25 +144,34 @@
             android:paddingRight="26dp">
 
             <Button
-                android:id="@+id/another_set_btn"
-                style="@style/ButtonGrey"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="14dp"
-                android:minHeight="58dp"
-                android:text="Another Set"
-                android:visibility="gone" />
+                android:id="@+id/btn_start_exercise"
+                style="@style/ButtonGreen"
+                android:text="@string/exercise_start"
+                android:visibility="visible" />
 
             <Button
-                android:id="@+id/trigger_exercise_btn"
-                style="@style/ButtonGreen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="14dp"
-                android:minHeight="58dp"
-                android:text="@string/start" />
+                android:id="@+id/btn_stop_exercise"
+                style="@style/ButtonRed"
+                android:text="@string/exercise_stop"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_next_exercise"
+                style="@style/ButtonRed"
+                android:text="@string/exercise_next"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_another_set"
+                style="@style/ButtonGrey"
+                android:text="Another Set"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_exercise_log"
+                style="@style/ButtonGrey"
+                android:text="@string/exercise_log"
+                android:visibility="visible" />
 
         </LinearLayout>
 
