@@ -52,6 +52,7 @@ public class FlurryAdapter {
     }
 
     private FlurryAdapter() {
+        //TODO re-write according to newest SDK guideline
     }
 
     public static FlurryAdapter getInstance() {
@@ -72,7 +73,7 @@ public class FlurryAdapter {
 
         if (flurryKey != null && !flurryKey.equals("")) {
             Log.i(TAG, "Starting Flurry session for " + flurryKey);
-            FlurryAgent.init(context, flurryKey);
+            FlurryAgent.init(context, flurryKey); // TODO W/FlurryAgent: 'init' method is deprecated.
             FlurryAgent.onStartSession(context);
         } else {
             Log.e(TAG, "FLURRY KEY not provided: ");
