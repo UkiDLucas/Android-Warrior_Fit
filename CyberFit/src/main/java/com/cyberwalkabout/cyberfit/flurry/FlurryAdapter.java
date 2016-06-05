@@ -61,9 +61,11 @@ public class FlurryAdapter {
 
 
     /**
+     * @param context This method is called in any Activity
+     * @Override protected void onStart() {
+     * super.onStart();
      * FlurryAdapter.getInstance().startSession(this);
-     *
-     * @param context
+     * }
      */
     public void startSession(Context context) {
 
