@@ -56,7 +56,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author Maria Dzyokh, Andrii Kovalov
+ * @author Maria Dzyokh, Andrii Kovalov, Uki D. Lucas
  */
 public class MyProfileFragment extends Fragment implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, TextWatcher, LoaderManager.LoaderCallbacks<Cursor> {
     private static final String TAG = MyProfileFragment.class.getSimpleName();
@@ -160,9 +160,17 @@ public class MyProfileFragment extends Fragment implements View.OnClickListener,
         super.onResume();
     }
 
+    /**
+     * We are logging the user info on exit of the screen,
+     * No personnally identifiable info is sent to server:
+     * FlurryEventRecorded: update_profile {age=43, login=LOCAL, date=US, units=US, height=177.8, gender=male, waist=74.9, weight=74.9}
+     * The units are converted to Metric
+     */
     @Override
     public void onPause() {
         super.onPause();
+        Log.w(TAG, "onPause() executed");
+        FlurryAdapter.getInstance().updateProfile(currentUser, appSettings.getSystemOfMeasurement(), appSettings.getDateFormat());
     }
 
     @Override
@@ -492,7 +500,8 @@ public class MyProfileFragment extends Fragment implements View.OnClickListener,
                 suppressUserUpdates = false;
 
                 if (!initialLoad) {
-                    FlurryAdapter.getInstance().updateProfile(currentUser, appSettings.getSystemOfMeasurement(), appSettings.getDateFormat());
+                    // We are executing it onPause() when exiting the Fragment
+                    //FlurryAdapter.getInstance().updateProfile(currentUser, appSettings.getSystemOfMeasurement(), appSettings.getDateFormat());
                 }
             } else {
                 if (displayLoginPopup) {

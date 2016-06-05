@@ -12,6 +12,7 @@ import com.cyberwalkabout.cyberfit.model.v2.ExerciseSession;
 import com.cyberwalkabout.cyberfit.model.v2.Program;
 import com.cyberwalkabout.cyberfit.model.v2.User;
 import com.flurry.android.FlurryAgent;
+import com.flurry.android.FlurryEventRecordStatus;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -238,9 +239,9 @@ public class FlurryAdapter {
         args.put("units", String.valueOf(units));
         args.put("date", String.valueOf(dateFormat));
 
-        Log.d(TAG, FLURRY_EVENT_UPDATE_PROFILE + " " + args);
 
-        FlurryAgent.logEvent(FLURRY_EVENT_UPDATE_PROFILE);
+        FlurryEventRecordStatus status = FlurryAgent.logEvent(FLURRY_EVENT_UPDATE_PROFILE + args);
+        Log.d(TAG, status.toString() + ": " + FLURRY_EVENT_UPDATE_PROFILE + " " + args);
     }
 
     public void deleteScheduleEntry() {
