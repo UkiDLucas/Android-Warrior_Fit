@@ -217,8 +217,7 @@
         <item name="android:minHeight">42dp</item>
     </style>
 
-    <style name="ButtonRed" parent="android:Widget.Button">
-        <item name="android:background">@drawable/button_red</item>
+    <style name="WarriorFit.Button" parent="android:Widget.Button">
         <item name="android:paddingRight">10dp</item>
         <item name="android:paddingLeft">10dp</item>
         <item name="android:gravity">center</item>
@@ -227,38 +226,26 @@
         <item name="android:textStyle">bold</item>
         <item name="android:minHeight">48dp</item>
         <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="ButtonRed" parent="WarriorFit.Button">
+        <item name="android:background">@drawable/button_red</item>
     </style>
 
     <style name="ButtonRed.Small" parent="ButtonRed">
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="ButtonGrey">
+    <style name="ButtonGrey" parent="WarriorFit.Button">
         <item name="android:background">@drawable/button_grey</item>
-        <item name="android:paddingRight">10dp</item>
-        <item name="android:paddingLeft">10dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">22sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:minHeight">48dp</item>
     </style>
 
     <style name="ButtonGrey.Small" parent="ButtonGrey">
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="ButtonGreen">
+    <style name="ButtonGreen" parent="WarriorFit.Button">
         <item name="android:background">@drawable/button_green</item>
-        <item name="android:paddingRight">10dp</item>
-        <item name="android:paddingLeft">10dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">22sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:minHeight">48dp</item>
     </style>
 
     <style name="NavigationButton" parent="android:style/Widget.Button.Small">
