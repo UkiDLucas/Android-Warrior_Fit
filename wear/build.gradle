@@ -6,7 +6,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "technology.uki.android_warriorfit_wear"
+        applicationId "com.cyberwalkabout.cyberfit"
         minSdkVersion 21
         targetSdkVersion 23
         versionCode 1

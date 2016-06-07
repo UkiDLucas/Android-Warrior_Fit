@@ -1,4 +1,4 @@
-package technology.uki.android_warriorfit_wear;
+package technology.uki.warriorfit;
 
 import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;

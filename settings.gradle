@@ -1,4 +1,4 @@
-include ':CyberFit',
+include ':mobile',
         ':modules:ICSNumberPicker',
         ':modules:ViewPagerIndicator',
         'dbmaker',
