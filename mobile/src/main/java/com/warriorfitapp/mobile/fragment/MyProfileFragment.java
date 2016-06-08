@@ -487,7 +487,7 @@ public class MyProfileFragment extends Fragment implements View.OnClickListener,
             if (data != null && data.moveToFirst()) {
                 suppressUserUpdates = true;
                 currentUser = UserCursorFactory.getInstance().create(data);
-                Log.d(TAG, "Loaded user:\n" + currentUser);
+                Log.d(TAG, "onLoadFinished: " + currentUser);
 
                 initUserProfileView();
 

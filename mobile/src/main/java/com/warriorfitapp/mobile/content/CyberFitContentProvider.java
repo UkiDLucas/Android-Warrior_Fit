@@ -63,6 +63,7 @@ import java.io.IOException;
 public class CyberFitContentProvider extends ContentProvider {
     private static final String TAG = CyberFitContentProvider.class.getSimpleName();
     //public static final String AUTHORITY = "com.cyberwalkabout.cyberfit.contentprovider";
+    // see AndroidManifest.xml
     public static final String AUTHORITY = "com.warriorfitapp.contentprovider";
 
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY);

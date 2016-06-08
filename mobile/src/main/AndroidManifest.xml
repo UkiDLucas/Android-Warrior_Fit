@@ -110,7 +110,7 @@
 
         <provider
             android:name="com.warriorfitapp.mobile.content.CyberFitContentProvider"
-            android:authorities="com.warriorfitapp.mobile.contentprovider"
+            android:authorities="com.warriorfitapp.contentprovider"
             android:enabled="true"
             android:exported="false" />
 
