@@ -59,12 +59,13 @@ android {
 dependencies {
     compile project(':dbshared')
 
-    compile 'com.google.android.gms:play-services-base:8.4.0'
-
-    //compile 'com.google.android.gms:play-services-base:8.1.0'
-    compile 'com.google.android.gms:play-services-plus:8.4.0'
-    compile 'com.google.android.gms:play-services-location:8.4.0'
-    compile 'com.google.android.gms:play-services-maps:8.4.0'
+    //compile 'com.google.android.gms:play-services-base:8.4.0'
+    // I want to maintain the newest Play Services
+    compile 'com.google.android.gms:play-services-base:+'
+    compile 'com.google.android.gms:play-services-plus:+'
+    compile 'com.google.android.gms:play-services-location:+'
+    compile 'com.google.android.gms:play-services-maps:+'
+    compile 'com.google.android.gms:play-services-wearable:+' // used to communicate with Wear
 
     compile 'com.android.support:support-v4:23.0.1'
     compile 'com.android.support:appcompat-v7:23.0.1'

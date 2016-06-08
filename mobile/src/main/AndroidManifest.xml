@@ -108,6 +108,12 @@
 
         <service android:name="com.warriorfitapp.mobile.ExerciseLocationTrackingService" />
 
+        <service android:name="com.warriorfitapp.mobile.services.WearExerciseService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
+            </intent-filter>
+        </service>
+
         <provider
             android:name="com.warriorfitapp.mobile.content.CyberFitContentProvider"
             android:authorities="com.warriorfitapp.contentprovider"
@@ -160,6 +166,8 @@
             android:name="com.google.android.backup.api_key"
             android:value="AEdPqrEAAAAIJLuYkp-dU0zyszyI-CgQVmIsdyWG8Xr7CpZvhQ" />
         -->
+
+
     </application>
 
 </manifest>
