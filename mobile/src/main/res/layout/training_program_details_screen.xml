@@ -10,7 +10,7 @@
 
     <fragment
         android:id="@+id/program_details_fragment"
-        android:name="com.cyberwalkabout.cyberfit.fragment.TrainingProgramDetailsFragment"
+        android:name="com.warriorfitapp.mobile.fragment.TrainingProgramDetailsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

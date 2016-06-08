@@ -70,7 +70,7 @@
 
         <include layout="@layout/measurements_enter_data" />
 
-        <com.cyberwalkabout.cyberfit.widget.MeasurementHistory
+        <com.warriorfitapp.mobile.widget.MeasurementHistory
             android:id="@+id/measurements_history"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

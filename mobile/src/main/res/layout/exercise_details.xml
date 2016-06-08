@@ -175,7 +175,7 @@
 
         </LinearLayout>
 
-        <com.cyberwalkabout.cyberfit.widget.ExerciseHistoryView
+        <com.warriorfitapp.mobile.widget.ExerciseHistoryView
             android:id="@+id/todays_history"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

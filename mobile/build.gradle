@@ -5,7 +5,7 @@ android {
     buildToolsVersion '23.0.3'
 
     defaultConfig {
-        applicationId "com.cyberwalkabout.cyberfit"
+        applicationId "com.cyberwalkabout.cyberfit"  // some day soon com.warriorfitapp
         minSdkVersion 16 // We will only support Android 4.1, Jelly Bean, API 16 and up
         targetSdkVersion 23
         versionCode 24
