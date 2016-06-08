@@ -1,5 +1,8 @@
 # Database preparation
 
+Change following XML to reflect new exercises:
+dbmaker/src/main/resources/default_config.xml
+
 #### Fetching values from YouTube video metadata
 
 To enable or disable Youtube API 
