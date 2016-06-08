@@ -6,7 +6,7 @@ To enable or disable Youtube API
 
 private boolean populateFromYoutube = true;
 
-dbmaker/src/main/java/com/cyberwalkabout/cyberfit/db/sqlite/**SQLiteDBCreator.java**
+dbmaker/src/main/java/com/warriorfitapp/db/sqlite/**SQLiteDBCreator.java**
 
 
 
@@ -20,10 +20,8 @@ Put them in file in dbmaker/src/main/resources folder **google_client_secrets.js
 
 #### Run Database Generator
 
-To run database generator navigate to dbmaker directory and execute `gradle bootRun`.
+> platform-tools $ cd ~/android-warrior-fit/dbmaker 
+> dbmaker $ gradle bootRun
+DB successfully created at '~/android-warrior-fit/dbmaker/build/db/cyberfit_v2.db' 
 
-Successful output should print something like this
-
-`.22:21:30.066 [main] INFO  com.cyberwalkabout.cyberfit.DBMaker - DB successfully created at '/Volumes/FusionDrive/Cyber/android-warrior-fit/dbmaker/build/db/cyberfit_v2.db'`
-
-Copy generated db file to `CyberFit/src/main/assets`
+Copy generated db file to `mobile/src/main/assets`

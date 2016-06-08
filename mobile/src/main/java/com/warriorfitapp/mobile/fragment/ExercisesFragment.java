@@ -511,6 +511,7 @@ public class ExercisesFragment extends ListFragment implements LoaderManager.Loa
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (!mDataValid) {
+                //TODO app crashes on start even with re-created database
                 throw new IllegalStateException("this should only be called when the cursor is valid");
             }
 
