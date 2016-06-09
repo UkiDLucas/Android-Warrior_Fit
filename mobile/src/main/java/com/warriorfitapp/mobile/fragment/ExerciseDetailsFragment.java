@@ -330,7 +330,9 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
         stopExerciseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sensors.stopTracking();
+                
+                String gyroData = sensors.stopTracking();
+                Log.i(TAG, "Gyroscope data: " + gyroData);
 
                 vibrator.cancel();
                 if (alarm.isPlaying()) {

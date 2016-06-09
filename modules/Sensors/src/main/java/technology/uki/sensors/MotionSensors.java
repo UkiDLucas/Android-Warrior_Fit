@@ -22,7 +22,13 @@ public class MotionSensors {
     float gyroAccelerationCurrent;
     float gyroAcceleration;
     long millisecondsStart;
-    long millisecondsEnd;
+
+    StringBuffer gyroData = new StringBuffer();
+    String gyroSingleReading;
+
+    float x; // x acceleration
+    float y; // y acceleration
+    float z; // z acceleration
 
     public MotionSensors(Context context) {
         sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -32,14 +38,22 @@ public class MotionSensors {
     }
 
     public void startTracking() {
+        gyroData.delete(0, gyroData.length()); // reset to empty
+        gyroData.append("|miliseconds,x,y,z,acceleration|");
         millisecondsStart = System.currentTimeMillis();
         sensorManager.registerListener(sensorEventListener,
                 sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE),
                 SensorManager.SENSOR_DELAY_NORMAL); // TODO in the future consider SENSOR_DELAY_GAME
     }
 
-    public void stopTracking() {
+    /**
+     * Returns the String of readings representing whole exercise session.
+     *
+     * @return
+     */
+    public String stopTracking() {
         sensorManager.unregisterListener(sensorEventListener);
+        return gyroData.toString();
     }
 
 
@@ -48,17 +62,19 @@ public class MotionSensors {
 
             switch (event.sensor.getType()) {
                 case Sensor.TYPE_GYROSCOPE:
-                    //Log.d(TAG, "onSensorChanged  Sensor.TYPE_GYROSCOPE " + event);
 
-                    float x = event.values[0];
-                    float y = event.values[1];
-                    float z = event.values[2];
+                    x = event.values[0];
+                    y = event.values[1];
+                    z = event.values[2];
+
                     gyroAccelerationLast = gyroAccelerationCurrent;
                     gyroAccelerationCurrent = (float) Math.sqrt((double) (x * x + y * y + z * z));
                     float delta = gyroAccelerationCurrent - gyroAccelerationLast;
                     gyroAcceleration = gyroAcceleration * 0.9f + delta; // perform low-cut filter
                     long timePassed = System.currentTimeMillis() - millisecondsStart;
-                    Log.d(TAG, "onSensorChanged  Sensor.TYPE_GYROSCOPE gyroAcceleration " + timePassed + "," + x + "," + y + "," + z + "," + gyroAcceleration);
+                    gyroSingleReading = "|" + timePassed + "," + x + "," + y + "," + z + "," + gyroAcceleration + "|";
+                    gyroData.append(gyroSingleReading);
+                    Log.d(TAG, "onSensorChanged  Sensor.TYPE_GYROSCOPE gyroAcceleration " + gyroSingleReading);
                     updateOrientation(x, y, z);
                     break;
                 case Sensor.TYPE_GRAVITY:
