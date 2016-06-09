@@ -6,9 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.cyberwalkabout.cyberfit"  // some day soon com.warriorfitapp
-        // We will only support Android 4.1, Jelly Bean, API 16 and up
-        // 21 temp to bypass: Error inflating class android.support.design.widget.NavigationView
-        minSdkVersion 21
+        minSdkVersion 16 // We will only support Android 4.1, Jelly Bean, API 16 and up
         targetSdkVersion 23
         versionCode 24
         versionName "24"
@@ -62,18 +60,18 @@ dependencies {
 
     compile project(':modules:ICSNumberPicker')
     compile project(':modules:ViewPagerIndicator')
-    compile project(':modules:Sensors')
     compile project(':dbshared')
 
     // TODO: need to update the Facebook login and sharing
     compile 'com.facebook.android:facebook-android-sdk:4.+' //4.6.0
+    //compile project(path: ':dbshared')
 
-    // Play Services is used to communicate with Wear
-    compile 'com.google.android.gms:play-services-wearable:8.4.0'
-    compile 'com.google.android.gms:play-services-base:8.4.0'
-    compile 'com.google.android.gms:play-services-plus:8.4.0'
-    compile 'com.google.android.gms:play-services-location:8.4.0'
-    compile 'com.google.android.gms:play-services-maps:8.4.0'
+    // I want to maintain the newest Play Services
+    compile 'com.google.android.gms:play-services-base:+'
+    compile 'com.google.android.gms:play-services-plus:+'
+    compile 'com.google.android.gms:play-services-location:+'
+    compile 'com.google.android.gms:play-services-maps:+'
+    compile 'com.google.android.gms:play-services-wearable:+' // used to communicate with Wear
 
     compile 'com.android.support:support-v4:23.0.1'
     compile 'com.android.support:appcompat-v7:23.0.1'

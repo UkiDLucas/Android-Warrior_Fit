@@ -38,6 +38,7 @@ import com.warriorfitapp.mobile.R;
 import com.warriorfitapp.mobile.content.ContentProviderAdapter;
 import com.warriorfitapp.mobile.flurry.FlurryAdapter;
 import com.warriorfitapp.mobile.model.v2.factory.ExerciseSessionCursorFactory;
+import com.warriorfitapp.mobile.sensors.MotionSensors;
 import com.warriorfitapp.mobile.util.Const;
 import com.warriorfitapp.mobile.util.ConvertUtils;
 import com.warriorfitapp.mobile.widget.ExerciseHistoryView;
@@ -60,18 +61,16 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
-import technology.uki.sensors.MotionSensors;
-
 /**
  * @author Andrii Kovalov, Uki D. Lucas
  */
 public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogListener, LoaderManager.LoaderCallbacks<Cursor> {
-    private static final String TAG = ExerciseDetailsFragment.class.getSimpleName();
 
     private MotionSensors sensors;
     public static final int DESCRIPTION_MAX_CHARACTERS_NOT_COLLAPSIBLE = 240;
     public static final int DESCRIPTION_MAX_LINES_COLLAPSED = 4;
     //private static final Logger LOG = LoggerFactory.getLogger(ExerciseDetailsFragment.class);
+    private static final String TAG = ExerciseDetailsFragment.class.getSimpleName();
     private static final int REQUEST_POPUP_CONFIRM_RECORD = 1;
     private static final int RECOVERY_DIALOG_REQUEST = 2;
     private static final String TIMER_BUTTON_FORMAT = "%02d:%02d:%02d";

@@ -12,12 +12,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import technology.uki.sensors.MotionSensors;
+import technology.uki.warriorfit.R;
 
 public class MainActivity extends WearableActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
-
-    private MotionSensors sensors;
 
     private static final SimpleDateFormat AMBIENT_DATE_FORMAT = new SimpleDateFormat("HH:mm", Locale.US);
 
@@ -41,7 +39,6 @@ public class MainActivity extends WearableActivity {
 
         initExerciseStartButton();
         initExerciseStopButton();
-        sensors = new MotionSensors(this);
     }
 
     private void initExerciseStartButton() {
@@ -52,7 +49,6 @@ public class MainActivity extends WearableActivity {
             public void onClick(View v) {
                 exerciseStartButton.setVisibility(View.GONE);
                 exerciseStopButton.setVisibility(View.VISIBLE);
-                sensors.startTracking();
                 Log.d(TAG, "Button exerciseStartButton.onCLick() ");
             }
         });
@@ -66,7 +62,6 @@ public class MainActivity extends WearableActivity {
             public void onClick(View v) {
                 exerciseStartButton.setVisibility(View.VISIBLE);
                 exerciseStopButton.setVisibility(View.GONE);
-                sensors.stopTracking();
                 Log.d(TAG, "Button exerciseStopButton.onCLick() ");
             }
         });

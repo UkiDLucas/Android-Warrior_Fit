@@ -1,7 +1,6 @@
 include ':mobile',
-        ':wear',
-        ':modules:Sensors',
         ':modules:ICSNumberPicker',
         ':modules:ViewPagerIndicator',
+        'dbmaker',
         'dbshared',
-        'dbmaker'
+        ':wear'

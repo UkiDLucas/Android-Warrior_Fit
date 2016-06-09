@@ -46,11 +46,11 @@
         <!-- android:theme="@style/CyberFitAppThemeSplashScreenTheme" -->
 
         <activity
-            android:name=".TutorialScreen"
+            android:name="com.warriorfitapp.mobile.TutorialScreen"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
         <activity
-            android:name=".SplashScreen"
+            android:name="com.warriorfitapp.mobile.SplashScreen"
             android:screenOrientation="portrait"
             android:theme="@style/CyberFitAppThemeSplashScreenTheme">
             <intent-filter>
@@ -60,62 +60,62 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomeScreen"
+            android:name="com.warriorfitapp.mobile.HomeScreen"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LoginScreen"
+            android:name="com.warriorfitapp.mobile.LoginScreen"
             android:screenOrientation="portrait"
             android:theme="@style/CyberFitAppTheme.LoginDialog" />
         <activity
-            android:name=".MyProfileScreen"
+            android:name="com.warriorfitapp.mobile.MyProfileScreen"
             android:windowSoftInputMode="stateUnchanged" />
         <activity
-            android:name=".ShareScreen"
+            android:name="com.warriorfitapp.mobile.ShareScreen"
             android:screenOrientation="portrait"
             android:theme="@style/CyberFitAppTheme.LoginDialog" />
         <activity
-            android:name=".ExerciseDetailsScreen"
+            android:name="com.warriorfitapp.mobile.ExerciseDetailsScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TrainingProgramDetailsScreen"
+            android:name="com.warriorfitapp.mobile.TrainingProgramDetailsScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PermissionsScreen"
+            android:name="com.warriorfitapp.mobile.PermissionsScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MeasurementsScreen"
+            android:name="com.warriorfitapp.mobile.MeasurementsScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ScheduleScreen"
+            android:name="com.warriorfitapp.mobile.ScheduleScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ExerciseHistoryScreen"
+            android:name="com.warriorfitapp.mobile.ExerciseHistoryScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PhotoComparisonScreen"
+            android:name="com.warriorfitapp.mobile.PhotoComparisonScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".InvitePersonScreen"
+            android:name="com.warriorfitapp.mobile.InvitePersonScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ForumScreen"
+            android:name="com.warriorfitapp.mobile.ForumScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ExerciseVideoScreen"
+            android:name="com.warriorfitapp.mobile.ExerciseVideoScreen"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="sensor" />
 
-        <service android:name=".ExerciseLocationTrackingService" />
+        <service android:name="com.warriorfitapp.mobile.ExerciseLocationTrackingService" />
 
-        <!--<service android:name=".services.WearExerciseService">-->
-        <!--<intent-filter>-->
-        <!--&lt;!&ndash;<action android:name="com.google.android.gms.wearable.BIND_LISTENER" />&ndash;&gt;-->
-        <!--</intent-filter>-->
-        <!--</service>-->
+        <service android:name="com.warriorfitapp.mobile.services.WearExerciseService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
+            </intent-filter>
+        </service>
 
         <provider
-            android:name=".content.CyberFitContentProvider"
+            android:name="com.warriorfitapp.mobile.content.CyberFitContentProvider"
             android:authorities="com.warriorfitapp.contentprovider"
             android:enabled="true"
             android:exported="false" />
@@ -130,12 +130,12 @@
         -->
 
         <activity
-            android:name=".MapExerciseScreen"
+            android:name="com.warriorfitapp.mobile.MapExerciseScreen"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MapExerciseSummaryScreen"
-            android:parentActivityName=".HomeScreen"
+            android:name="com.warriorfitapp.mobile.MapExerciseSummaryScreen"
+            android:parentActivityName="com.warriorfitapp.mobile.HomeScreen"
             android:screenOrientation="portrait" />
 
         <!--Facebook-->
@@ -161,5 +161,13 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <!--
+            <meta-data
+            android:name="com.google.android.backup.api_key"
+            android:value="AEdPqrEAAAAIJLuYkp-dU0zyszyI-CgQVmIsdyWG8Xr7CpZvhQ" />
+        -->
+
+
     </application>
+
 </manifest>

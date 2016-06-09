@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Warrior Fit</string>
+    <string name="app_name">WarriorFit Wear</string>
     <string name="exercise_name">Full Squats</string>
     <string name="exercise_start">Start</string>
     <string name="exercise_stop">Stop</string>
