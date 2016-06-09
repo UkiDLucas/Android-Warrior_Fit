@@ -64,14 +64,13 @@ dependencies {
 
     // TODO: need to update the Facebook login and sharing
     compile 'com.facebook.android:facebook-android-sdk:4.+' //4.6.0
-    //compile project(path: ':dbshared')
 
-    // I want to maintain the newest Play Services
+    // Play Services are used to communicate with Wear
+    compile 'com.google.android.gms:play-services-wearable:+'
     compile 'com.google.android.gms:play-services-base:+'
     compile 'com.google.android.gms:play-services-plus:+'
     compile 'com.google.android.gms:play-services-location:+'
     compile 'com.google.android.gms:play-services-maps:+'
-    compile 'com.google.android.gms:play-services-wearable:+' // used to communicate with Wear
 
     compile 'com.android.support:support-v4:23.0.1'
     compile 'com.android.support:appcompat-v7:23.0.1'
