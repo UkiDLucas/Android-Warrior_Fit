@@ -66,7 +66,6 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:4.+' //4.6.0
     //compile project(path: ':dbshared')
 
-    //compile 'com.google.android.gms:play-services-base:8.4.0'
     // I want to maintain the newest Play Services
     compile 'com.google.android.gms:play-services-base:+'
     compile 'com.google.android.gms:play-services-plus:+'
@@ -82,10 +81,10 @@ dependencies {
     compile 'com.android.support:multidex:1.0.1'
 
     // Flurry checked by Uki: as of May 23, 2016
-    compile 'com.flurry.android:analytics:6.3.1'
+    compile 'com.flurry.android:analytics:+' // 6.3.1
 
-    // logging
-    compile 'org.slf4j:slf4j-android:1.7.12'
+    // Log
+    compile 'org.slf4j:slf4j-android:+' // 1.7.21
 
     compile 'com.avast:android-styled-dialogs:2.2.0'
 
