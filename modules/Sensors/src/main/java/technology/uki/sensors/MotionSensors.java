@@ -1,4 +1,4 @@
-package com.warriorfitapp.mobile.sensors;
+package technology.uki.sensors;
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -9,6 +9,8 @@ import android.util.Log;
 
 /**
  * Created by ukilucas on 6/5/16.
+ * This class is used in both mobile and wear apps,
+ * hence it is extracted to shared library.
  */
 public class MotionSensors {
 
@@ -22,7 +24,6 @@ public class MotionSensors {
     float gyroAccelerationCurrent;
     float gyroAcceleration;
     long millisecondsStart;
-    long millisecondsEnd;
 
     public MotionSensors(Context context) {
         sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
