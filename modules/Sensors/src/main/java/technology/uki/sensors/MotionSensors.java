@@ -1,4 +1,4 @@
-package com.warriorfitapp.mobile.sensors;
+package technology.uki.sensors;
 
 import android.content.Context;
 import android.hardware.Sensor;

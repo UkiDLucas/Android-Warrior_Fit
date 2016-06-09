@@ -58,6 +58,7 @@ android {
 
 dependencies {
 
+    compile project(':modules:Sensors')
     compile project(':modules:ICSNumberPicker')
     compile project(':modules:ViewPagerIndicator')
     compile project(':dbshared')

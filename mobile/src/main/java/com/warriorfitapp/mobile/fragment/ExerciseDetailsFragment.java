@@ -38,7 +38,6 @@ import com.warriorfitapp.mobile.R;
 import com.warriorfitapp.mobile.content.ContentProviderAdapter;
 import com.warriorfitapp.mobile.flurry.FlurryAdapter;
 import com.warriorfitapp.mobile.model.v2.factory.ExerciseSessionCursorFactory;
-import com.warriorfitapp.mobile.sensors.MotionSensors;
 import com.warriorfitapp.mobile.util.Const;
 import com.warriorfitapp.mobile.util.ConvertUtils;
 import com.warriorfitapp.mobile.widget.ExerciseHistoryView;
@@ -60,6 +59,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
+
+import technology.uki.sensors.MotionSensors;
 
 /**
  * @author Andrii Kovalov, Uki D. Lucas
