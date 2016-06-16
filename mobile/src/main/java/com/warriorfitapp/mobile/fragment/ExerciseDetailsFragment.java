@@ -58,6 +58,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.TimeZone;
 
 import technology.uki.sensors.MotionSensors;
@@ -331,8 +332,9 @@ public class ExerciseDetailsFragment extends Fragment implements ISimpleDialogLi
             @Override
             public void onClick(View v) {
 
-                String gyroData = sensors.stopTracking();
-                Log.i(TAG, "Gyroscope data: " + exercise.toString() + gyroData);
+                Map<String, String> parameters = sensors.stopTracking();
+                Log.i(TAG, "Gyroscope data: " + exercise.toString() + parameters);
+                flurryAdapter.exercisePerformedData(exercise, parameters);
 
                 vibrator.cancel();
                 if (alarm.isPlaying()) {

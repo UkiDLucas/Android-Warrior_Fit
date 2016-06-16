@@ -26,6 +26,7 @@ import java.util.TimeZone;
  */
 public class FlurryAdapter {
 
+    public static final String FLURRY_EVENT_EXERCISE_DATA = "exercise_performed_data";
     public static final String FLURRY_EVENT_APP_OPENED = "app_opened";
     public static final String FLURRY_EVENT_EXERCISE_COMPLETED = "exercise_completed";
     public static final String FLURRY_EVENT_SOCIAL_NETWORK_LOGIN = "social_network_login";
@@ -109,6 +110,22 @@ public class FlurryAdapter {
     public void logEventAppOpened() {
         Log.d(TAG, FLURRY_EVENT_APP_OPENED);
         FlurryAgent.logEvent(FLURRY_EVENT_APP_OPENED); //TODO add app version parameter
+    }
+
+    /**
+     * This Flurry event is meant for documenting exercise sensor data
+     * gathered from Motion Sensor (gyroscope, etc).
+     * The data should be comma separated to limit the post-processing to minimum.
+     * Currently, I have a problem because Flurry can story only limited amount of data per Event
+     *
+     */
+    public void exercisePerformedData(Exercise exercise, Map<String, String> data) {
+        Map<String, String> parameters = new HashMap<>();
+        parameters.putAll(data); // add all gyro data to parameters
+        parameters.put("YouTube_ID", exercise.getYoutubeId());
+        parameters.put("Exercise_Name", exercise.getName());
+        Log.d(TAG, FLURRY_EVENT_EXERCISE_DATA + " " + parameters);
+        FlurryAgent.logEvent(FLURRY_EVENT_EXERCISE_DATA, parameters);
     }
 
 

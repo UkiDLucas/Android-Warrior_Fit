@@ -7,6 +7,10 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
 
+import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by ukilucas on 6/5/16.
  */
@@ -15,12 +19,17 @@ public class MotionSensors {
     private static final String TAG = MotionSensors.class.getSimpleName();
     private SensorManager sensorManager;
 
+    // TODO this should probably be replaced with proper rounding, not just cutting of
+    DecimalFormat print = new DecimalFormat("#.#"); // 0.1 accuracy should be plenty sufficient
+
     float gyroAccelerationLast;
     float gyroAccelerationCurrent;
     float gyroAcceleration;
     long millisecondsStart;
 
-    StringBuffer gyroData = new StringBuffer();
+    //StringBuffer exercisePerformedData = new StringBuffer();
+
+    Map<String, String> gyroscopeSensorData = new HashMap<>();
     String gyroSingleReading;
 
     float rotationX; // x acceleration
@@ -32,10 +41,11 @@ public class MotionSensors {
     }
 
     public void startTracking() {
-        gyroData.delete(0, gyroData.length()); // reset to empty
+        gyroscopeSensorData = new HashMap<>();
+        //exercisePerformedData.delete(0, exercisePerformedData.length()); // reset to empty
 
         // Adding "|" pipe separators as they make parsing later very easy
-        gyroData.append("|milliseconds,rotationX,rotationY,rotationZ,rotationCombined|");
+        // exercisePerformedData.append("|milliseconds,rotationX,rotationY,rotationZ,rotationCombined|");
         millisecondsStart = System.currentTimeMillis();
 
         /**
@@ -54,15 +64,18 @@ public class MotionSensors {
 
     }
 
+
     /**
      * Returns the String of readings representing whole exercise session.
      *
      * @return
      */
-    public String stopTracking() {
+    public Map<String, String> stopTracking() {
         sensorManager.unregisterListener(sensorEventListener);
-        return gyroData.toString(); //TODO add other types of data
+        //return exercisePerformedData.toString();
+        return gyroscopeSensorData;
     }
+
 
     /**
      * read: https://developer.android.com/reference/android/hardware/SensorEvent.html#values
@@ -79,12 +92,14 @@ public class MotionSensors {
                     rotationZ = event.values[2];
 
                     gyroAccelerationLast = gyroAccelerationCurrent;
+                    // combined acceleration = squareRoot (x^2 + y^2 + z^2)
                     gyroAccelerationCurrent = (float) Math.sqrt((double) (rotationX * rotationX + rotationY * rotationY + rotationZ * rotationZ));
                     float delta = gyroAccelerationCurrent - gyroAccelerationLast;
-                    gyroAcceleration = gyroAcceleration * 0.9f + delta; // perform low-cut filter
+                    gyroAcceleration = gyroAcceleration * 0.9806f + delta; // gravity
                     long timePassed = System.currentTimeMillis() - millisecondsStart;
-                    gyroSingleReading = "|" + timePassed + "," + rotationX + "," + rotationY + "," + rotationZ + "," + gyroAcceleration + "|";
-                    gyroData.append(gyroSingleReading);
+                    gyroSingleReading = print.format(rotationX) + "," + print.format(rotationY) + "," + print.format(rotationZ);
+                    //exercisePerformedData.append(gyroSingleReading);  //TODO add other types of data
+                    gyroscopeSensorData.put("gyro_" + timePassed, gyroSingleReading);
                     Log.d(TAG, "onSensorChanged  Sensor.TYPE_GYROSCOPE gyroAcceleration " + gyroSingleReading);
                     break;
                 case Sensor.TYPE_GRAVITY:
