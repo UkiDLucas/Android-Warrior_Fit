@@ -7,6 +7,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
 
+import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -88,7 +89,7 @@ public class MotionSensors {
                     gyroZ = Math.round(event.values[2]);
 
                     long timePassed = System.currentTimeMillis() - millisecondsStart; // loop optimize
-                    gyroSingleReading = gyroX + "," + gyroY + "," + gyroZ + "," + absSum(gyroX, gyroY, gyroZ);
+                    gyroSingleReading = format(gyroX) + "," + format(gyroY) + "," + format(gyroZ) + "," + absSum(gyroX, gyroY, gyroZ);
                     sensorData.put("gyro_" + interval(timePassed), gyroSingleReading);
                     Log.d(TAG, "onSensorChanged  Sensor.TYPE_GYROSCOPE gyroAcceleration " + gyroSingleReading);
                     break;
@@ -109,18 +110,31 @@ public class MotionSensors {
     };
 
 
+    /**
+     * returns a String representing the sum of absolute values
+     */
     String absSum(float x, float y, float z) {
-        float sum = Math.abs(x) + Math.abs(y) + Math.abs(z);
-//        if (sum == 0)
-//            return "split";
-//        else
-        return String.valueOf(sum);
+        //float sum = ;
+        //        if (sum == 0)
+        //            return "split";
+        //        else
+        return format(Math.abs(x) + Math.abs(y) + Math.abs(z));
+    }
+
+    /**
+     * Make sure the number is rounded to integer and displayed as String
+     *
+     * @param number
+     * @return
+     */
+    private String format(float number) {
+        return integerStringFormatter.format(Math.round(number));
     }
 
 
     int timeInterval = 100; // we will report vectors in 0.1 intervals, not the real time
 
-    //DecimalFormat integerFormatter = new DecimalFormat("#");
+    DecimalFormat integerStringFormatter = new DecimalFormat("#");
 
     /**
      * We will measure exercise intervals in 1/10 of a second
