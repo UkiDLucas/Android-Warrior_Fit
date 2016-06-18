@@ -7,8 +7,6 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
 
-import java.text.DecimalFormat;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -20,29 +18,27 @@ public class MotionSensors {
     private static final String TAG = MotionSensors.class.getSimpleName();
     private SensorManager sensorManager;
 
-
-    float gyroAccelerationLast;
-    float gyroAccelerationCurrent;
-    float gyroAcceleration;
     long millisecondsStart;
 
-    Map<String, String> gyroscopeSensorData = new TreeMap<String, String>();
-    String gyroSingleReading;
+    Map<String, String> sensorData = null;
+    String gyroSingleReading; // keeping as class member to avoid creation 10 times per second
 
-    float rotationX; // x acceleration
-    float rotationY; // y acceleration
-    float rotationZ; // z acceleration
+    // Gyroscope rotational acceleration around axis
+    // keeping as class members to avoid creation 10 times per second
+    float gyroX;
+    float gyroY;
+    float gyroZ;
 
     public MotionSensors(Context context) {
         sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
     }
 
     public void startTracking() {
-        gyroscopeSensorData = new HashMap<>();
+        sensorData = new TreeMap<String, String>();
         //exercisePerformedData.delete(0, exercisePerformedData.length()); // reset to empty
 
         // Adding "|" pipe separators as they make parsing later very easy
-        // exercisePerformedData.append("|milliseconds,rotationX,rotationY,rotationZ,rotationCombined|");
+        // exercisePerformedData.append("|milliseconds,gyroX,gyroY,gyroZ,rotationCombined|");
         millisecondsStart = System.currentTimeMillis();
 
         /**
@@ -70,7 +66,7 @@ public class MotionSensors {
     public Map<String, String> stopTracking() {
         sensorManager.unregisterListener(sensorEventListener);
         //return exercisePerformedData.toString();
-        return gyroscopeSensorData;
+        return sensorData;
     }
 
 
@@ -84,27 +80,23 @@ public class MotionSensors {
 
                 case Sensor.TYPE_GYROSCOPE: // rotational acceleration around X,Y,Z
 
-                    rotationX = event.values[0];
-                    rotationY = event.values[1];
-                    rotationZ = event.values[2];
+                    // Decided to round accelaration to whole integers,
+                    // as more granularity is not needed,
+                    // or even detrimental
+                    gyroX = Math.round(event.values[0]);
+                    gyroY = Math.round(event.values[1]);
+                    gyroZ = Math.round(event.values[2]);
 
-                    gyroAccelerationLast = gyroAccelerationCurrent;
-                    // combined acceleration = squareRoot (x^2 + y^2 + z^2)
-                    gyroAccelerationCurrent = (float) Math.sqrt((double) (rotationX * rotationX + rotationY * rotationY + rotationZ * rotationZ));
-                    float delta = gyroAccelerationCurrent - gyroAccelerationLast;
-                    gyroAcceleration = gyroAcceleration * 0.9806f + delta; // gravity
-                    long timePassed = System.currentTimeMillis() - millisecondsStart;
-                    gyroSingleReading = round(rotationX) + "," + round(rotationY) + "," + round(rotationZ) + "," + absSum(rotationX, rotationY, rotationZ);
-                    //exercisePerformedData.append(gyroSingleReading);  //TODO add other types of data
-
-                    gyroscopeSensorData.put("gyro_" + interval(timePassed), gyroSingleReading);
+                    long timePassed = System.currentTimeMillis() - millisecondsStart; // loop optimize
+                    gyroSingleReading = gyroX + "," + gyroY + "," + gyroZ + "," + absSum(gyroX, gyroY, gyroZ);
+                    sensorData.put("gyro_" + interval(timePassed), gyroSingleReading);
                     Log.d(TAG, "onSensorChanged  Sensor.TYPE_GYROSCOPE gyroAcceleration " + gyroSingleReading);
                     break;
                 case Sensor.TYPE_GRAVITY:
                     Log.d(TAG, "onSensorChanged  Sensor.TYPE_GRAVITY ");
                     break;
                 case Sensor.TYPE_ACCELEROMETER:
-                    Log.d(TAG, "onSensorChanged  Sensor.TYPE_ACCELEROMETER ");
+                    Log.d(TAG, "onSensorChanged  Sensor.TYPE_ACCELEROMETER x=" + event.values[0] + " y=" + event.values[1] + " z=" + event.values[2]);
                     break;
                 default:
                     Log.d(TAG, "onSensorChanged  event.sensor.getType() ");
@@ -119,30 +111,40 @@ public class MotionSensors {
 
     String absSum(float x, float y, float z) {
         float sum = Math.abs(x) + Math.abs(y) + Math.abs(z);
-        if (sum == 0)
-            return "split";
-        else
-            return integerFormatter.format(sum);
+//        if (sum == 0)
+//            return "split";
+//        else
+        return String.valueOf(sum);
     }
 
 
     int timeInterval = 100; // we will report vectors in 0.1 intervals, not the real time
 
-    DecimalFormat integerFormatter = new DecimalFormat("#");
+    //DecimalFormat integerFormatter = new DecimalFormat("#");
 
+    /**
+     * We will measure exercise intervals in 1/10 of a second
+     * e.g. 357 millisecons/100 = 3.57 rounding -> 4  or 4/10 second
+     *
+     * @param millisecounds
+     * @return
+     */
     private String interval(long millisecounds) {
-        String output = integerFormatter.format(millisecounds / 100); // e.g. 357/100 = 3.57 -> 3
+        String output = String.valueOf(Math.round(millisecounds / 100)); // see JavaDoc
 
-        while (output.length() < 2) { // prepend zeros to help with sorting
+        while (output.length() < 3) { // 3 zeros allow us for 999.9 seconds, Flurry will limit this
+            // prepend zeros to help with sorting e.g. 0045 before 0041
             output = "0" + output;
         }
         return output;
     }
 
-    // TODO this should probably be replaced with proper rounding, not just cutting of
-    DecimalFormat oneDecimalAfterFormatter = new DecimalFormat("#.#"); // 0.1 accuracy
+    // DecimalFormat oneDecimalAfterFormatter = new DecimalFormat("#.#"); // 0.1 accuracy
+    // combined acceleration not used at this time
+    // gyroAccelerationLast = gyroAccelerationCurrent;
+    // combined acceleration = squareRoot (x^2 + y^2 + z^2)
+    // gyroAccelerationCurrent = (float) Math.sqrt((double) (gyroX * gyroX + gyroY * gyroY + gyroZ * gyroZ));
+    // float delta = gyroAccelerationCurrent - gyroAccelerationLast;
+    // gyroAcceleration = gyroAcceleration * 0.9806f + delta; // gravity
 
-    private String round(float value) {
-        return integerFormatter.format(value);
-    }
 }
