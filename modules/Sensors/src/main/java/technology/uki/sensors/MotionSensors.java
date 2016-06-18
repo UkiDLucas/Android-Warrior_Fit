@@ -10,6 +10,7 @@ import android.util.Log;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Created by ukilucas on 6/5/16.
@@ -19,17 +20,13 @@ public class MotionSensors {
     private static final String TAG = MotionSensors.class.getSimpleName();
     private SensorManager sensorManager;
 
-    // TODO this should probably be replaced with proper rounding, not just cutting of
-    DecimalFormat print = new DecimalFormat("#.#"); // 0.1 accuracy should be plenty sufficient
 
     float gyroAccelerationLast;
     float gyroAccelerationCurrent;
     float gyroAcceleration;
     long millisecondsStart;
 
-    //StringBuffer exercisePerformedData = new StringBuffer();
-
-    Map<String, String> gyroscopeSensorData = new HashMap<>();
+    Map<String, String> gyroscopeSensorData = new TreeMap<String, String>();
     String gyroSingleReading;
 
     float rotationX; // x acceleration
@@ -60,7 +57,7 @@ public class MotionSensors {
          */
         sensorManager.registerListener(sensorEventListener,
                 sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE),
-                SensorManager.SENSOR_DELAY_UI);
+                SensorManager.SENSOR_DELAY_GAME);
 
     }
 
@@ -97,9 +94,10 @@ public class MotionSensors {
                     float delta = gyroAccelerationCurrent - gyroAccelerationLast;
                     gyroAcceleration = gyroAcceleration * 0.9806f + delta; // gravity
                     long timePassed = System.currentTimeMillis() - millisecondsStart;
-                    gyroSingleReading = print.format(rotationX) + "," + print.format(rotationY) + "," + print.format(rotationZ);
+                    gyroSingleReading = round(rotationX) + "," + round(rotationY) + "," + round(rotationZ) + "," + absSum(rotationX, rotationY, rotationZ);
                     //exercisePerformedData.append(gyroSingleReading);  //TODO add other types of data
-                    gyroscopeSensorData.put("gyro_" + timePassed, gyroSingleReading);
+
+                    gyroscopeSensorData.put("gyro_" + interval(timePassed), gyroSingleReading);
                     Log.d(TAG, "onSensorChanged  Sensor.TYPE_GYROSCOPE gyroAcceleration " + gyroSingleReading);
                     break;
                 case Sensor.TYPE_GRAVITY:
@@ -117,4 +115,34 @@ public class MotionSensors {
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
         }
     };
+
+
+    String absSum(float x, float y, float z) {
+        float sum = Math.abs(x) + Math.abs(y) + Math.abs(z);
+        if (sum == 0)
+            return "split";
+        else
+            return integerFormatter.format(sum);
+    }
+
+
+    int timeInterval = 100; // we will report vectors in 0.1 intervals, not the real time
+
+    DecimalFormat integerFormatter = new DecimalFormat("#");
+
+    private String interval(long millisecounds) {
+        String output = integerFormatter.format(millisecounds / 100); // e.g. 357/100 = 3.57 -> 3
+
+        while (output.length() < 2) { // prepend zeros to help with sorting
+            output = "0" + output;
+        }
+        return output;
+    }
+
+    // TODO this should probably be replaced with proper rounding, not just cutting of
+    DecimalFormat oneDecimalAfterFormatter = new DecimalFormat("#.#"); // 0.1 accuracy
+
+    private String round(float value) {
+        return integerFormatter.format(value);
+    }
 }

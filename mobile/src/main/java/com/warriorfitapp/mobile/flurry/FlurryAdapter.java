@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.TimeZone;
+import java.util.TreeMap;
 
 /**
  * @author Andrii Kovalov, Uki D. Lucas
@@ -120,7 +121,7 @@ public class FlurryAdapter {
      *
      */
     public void exercisePerformedData(Exercise exercise, Map<String, String> data) {
-        Map<String, String> parameters = new HashMap<>();
+        Map<String, String> parameters = new TreeMap<String, String>();
         parameters.putAll(data); // add all gyro data to parameters
         parameters.put("YouTube_ID", exercise.getYoutubeId());
         parameters.put("Exercise_Name", exercise.getName());
