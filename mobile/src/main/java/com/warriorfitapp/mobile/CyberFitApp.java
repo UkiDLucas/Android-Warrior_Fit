@@ -36,7 +36,6 @@ public class CyberFitApp extends Application {
     public void onCreate() {
         super.onCreate();
         FlurryAdapter.getInstance().startSession(this); // We want analytics from beginning.
-        FlurryAdapter.getInstance().logEventAppOpened();
         FacebookSdk.sdkInitialize(getApplicationContext()); //TODO Uki: init Fb only when needed
         //exportDbToSdCard();
     }
